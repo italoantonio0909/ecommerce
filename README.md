@@ -53,3 +53,7 @@ Domain events will have a consistency, their synchronization with event subscrib
 - Any form of user data collection: no data will be collected in this project.
 - error handling rery mechanisms.
 - The system will be divided into multiple phases of development, the cost estimate will not be updated from the initial estimate, which is a worst case scenario.
+
+### Proposal
+
+![Untitled Diagram drawio](https://user-images.githubusercontent.com/69835391/190509610-e46020d5-2db4-4086-ae62-f640d5b54817.png)
