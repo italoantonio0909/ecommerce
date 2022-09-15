@@ -1,0 +1,77 @@
+services: 
+  Sales.authentication.AuthenticationRepository:
+    class: ../../../../Contexts/Sales/Authentication/infrastructure/persistence/AuthenticationWebApiClient
+    arguments: []
+
+  Sales.authentication.AuthenticationSignIn:
+    class: ../../../../Contexts/Sales/Authentication/application/signIn/AuthenticationSignIn
+    arguments: ['@Sales.authentication.AuthenticationRepository']
+
+  Sales.authentication.AuthenticationSignInController:
+    class: ../../../../Contexts/Sales/Authentication/infrastructure/controller/AuthenticationSignInController
+    arguments: []
+  
+  Sales.authentication.AuthenticationSignOutController:
+    class: ../../../../Contexts/Sales/Authentication/infrastructure/controller/AuthenticationSignOutController
+    arguments: []
+
+  # Customers  # Customers  # Customers
+  Sales.customers.CustomerRepository:
+    class: ../../../../Contexts/Sales/Customers/infrastructure/persistence/CustomerWebApiClient
+    arguments: []
+
+  Sales.customers.CustomerSave:
+    class: ../../../../Contexts/Sales/Customers/application/save/CustomerSave
+    arguments: ['@Sales.customers.CustomerRepository']
+
+  Sales.customers.CustomerSaveController:
+    class: ../../../../Contexts/Sales/Customers/infrastructure/controller/save/CustomerSaveController
+    arguments: []
+
+  # Subscribers  # Subscribers  # Subscribers
+  Sales.subscribers.SubscriberRepository:
+    class: ../../../../Contexts/Sales/Subscribers/infrastructure/persistence/SubscriberWebApiClient
+    arguments: []
+
+  Sales.subscribers.SubscriberSave:
+    class: ../../../../Contexts/Sales/Subscribers/application/save/SubscriberSave
+    arguments: ['@Sales.subscribers.SubscriberRepository', '@Shared.EventBus']
+
+  Sales.subscribers.SubscriberSaveCommandHandler:
+    class: ../../../../Contexts/Sales/Subscribers/application/save/SubscriberSaveCommandHandler
+    arguments: ['@Sales.subscribers.SubscriberSave']
+    tags:
+      - { name: 'commandHandler' }
+
+  Sales.subscribers.SubscriberSaveController:
+    class: ../../../../apps/Sales/Subscribers/controllers/SubscriberSaveController
+    arguments: ['@Shared.CommandBus']
+
+  # Blog   #Blog  # Blog
+  Sales.post.PostRepository:
+    class: ../../../../Contexts/Sales/Blog/infrastructure/persistence/BlogWebApiClient
+    arguments: []
+
+  Sales.post.PostPaginate:
+    class: ../../../../Contexts/Sales/Blog/application/paginate/PostPaginate
+    arguments: ['@Sales.post.PostRepository']
+
+  Sales.post.PostAddComment:
+    class: ../../../../Contexts/Sales/Blog/application/addComment/PostAddComment
+    arguments: ['@Sales.post.PostRepository']
+
+  Sales.post.PostRetrieveDetail:
+    class: ../../../../Contexts/Sales/Blog/application/retrieveDetail/PostRetrieveDetail
+    arguments: ['@Sales.post.PostRepository']
+  
+  Sales.post.PostPaginateController:
+    class: ../../../../Contexts/Sales/Blog/infrastructure/controller/paginate/PostPaginateController
+    arguments: []
+
+  Sales.post.PostAddCommentController:
+    class: ../../../../Contexts/Sales/Blog/infrastructure/controller/addComment/PostAddCommentController
+    arguments: []
+
+  Sales.post.PostRetrieveDetailController:
+    class: ../../../../Contexts/Sales/Blog/infrastructure/controller/retrieveDetail/PostRetrieveDetailController
+    arguments: []

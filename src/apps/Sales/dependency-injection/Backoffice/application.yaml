@@ -1,0 +1,250 @@
+services: 
+
+  Backoffice.blog.post.BackofficePostRepository:
+    class: ../../../../Contexts/Backoffice/Blog/Post/infrastructure/persistence/BackofficePostWebApiClient
+    arguments: []
+
+  Backoffice.blog.post.BackofficePostSave:
+    class: ../../../../Contexts/Backoffice/Blog/Post/application/save/BackofficePostSave
+    arguments: ['@Backoffice.blog.post.BackofficeBlogRepository']
+
+  Backoffice.blog.post.BackofficePostPaginate:
+    class: ../../../../Contexts/Backoffice/Blog/Post/application/paginate/BackofficePostPaginate
+    arguments: ['@Backoffice.blog.post.BackofficeBlogRepository']
+
+  Backoffice.blog.post.infrastructure.BackofficePostPublish:
+    class: ../../../../Contexts/Backoffice/Blog/Post/application/publish/BackofficePostPublish
+    arguments: ['@Backoffice.blog.post.BackofficeBlogRepository']
+
+  Backoffice.blog.post.infrastructure.BackofficePostRetrieveDetail:
+    class: ../../../../Contexts/Backoffice/Blog/Post/application/retrieveDetail/BackofficePostRetrieveDetail
+    arguments: ['@Backoffice.blog.post.BackofficeBlogRepository']
+
+  Backoffice.blog.post.BackofficePostSaveController:
+    class: ../../../../Contexts/Backoffice/Blog/Post/infrastructure/controller/save/BackofficePostSaveController
+    arguments: []
+
+  Backoffice.blog.post.infrastructure.BackofficePostPaginateController:
+    class: ../../../../Contexts/Backoffice/Blog/Post/infrastructure/controller/paginate/BackofficePostPaginateController
+    arguments: []
+
+
+  Backoffice.blog.post.infrastructure.BackofficePostPublishController:
+    class: ../../../../Contexts/Backoffice/Blog/Post/infrastructure/controller/publish/BackofficePostPublishController
+    arguments: []
+
+
+  Backoffice.blog.post.infrastructure.BackofficePostRetrieveDetailController:
+    class: ../../../../Contexts/Backoffice/Blog/Post/infrastructure/controller/retrieveDetail/BackofficePostRetrieveDetailController
+    arguments: []
+
+  Backoffice.blog.postCategory.BackofficePostCategoryRepository:
+    class: ../../../../Contexts/Backoffice/Blog/PostCategory/infrastructure/persistence/BackofficePostCategoryWebApiClient
+    arguments: []
+
+  Backoffice.blog.postCategory.BackofficePostCategorySave:
+    class: ../../../../Contexts/Backoffice/Blog/PostCategory/application/save/BackofficePostCategorySave
+    arguments: ['@Backoffice.blog.postCategory.BackofficePostCategoryRepository']
+
+  Backoffice.blog.postCategory.BackofficePostCategoryFind:
+    class: ../../../../Contexts/Backoffice/Blog/PostCategory/application/find/BackofficePostCategoryFind
+    arguments: ['@Backoffice.blog.postCategory.BackofficePostCategoryRepository']
+
+  Backoffice.blog.postCategory.infrastructure.BackofficePostCategorySaveController:
+    class: ../../../../Contexts/Backoffice/Blog/PostCategory/infrastructure/controller/BackofficePostCategorySaveController
+    arguments: []
+  
+  # # Catalogue # Catalogue # Catalogue
+
+  # Category 
+
+  Backoffice.Catalogue.Category.BackofficeCategoryRepository:
+    class: ../../../../Contexts/Backoffice/Catalogue/Category/infrastructure/persistence/BackofficeCategoryWebApiClient
+    arguments: []
+
+  Backoffice.Catalogue.Category.infrastructure.BackofficeCategorySave:
+    class: ../../../../Contexts/Backoffice/Catalogue/Category/application/save/BackofficeCategorySave
+    arguments: ['@Backoffice.Catalogue.Category.BackofficeCategoryRepository']
+
+  Backoffice.Catalogue.Category.infrastructure.BackofficeCategoryUpdate:
+    class: ../../../../Contexts/Backoffice/Catalogue/Category/application/update/BackofficeCategoryUpdate
+    arguments: ['@Backoffice.Catalogue.Category.BackofficeCategoryRepository']
+
+  Backoffice.Catalogue.Category.infrastructure.BackofficeCategoryPaginate:
+    class: ../../../../Contexts/Backoffice/Catalogue/Category/application/paginate/BackofficeCategoryPaginate
+    arguments: ['@Backoffice.Catalogue.Category.BackofficeCategoryRepository']
+
+  Backoffice.Catalogue.Category.infrastructure.BackofficeCategoryDelete:
+    class: ../../../../Contexts/Backoffice/Catalogue/Category/application/delete/BackofficeCategoryDelete
+    arguments: ['@Backoffice.Catalogue.Category.BackofficeCategoryRepository']
+
+  Backoffice.Catalogue.Category.infrastructure.BackofficeCategorySaveController:
+    class: ../../../../Contexts/Backoffice/Catalogue/Category/infrastructure/controller/save/BackofficeCategorySaveController
+    arguments: []
+
+  Backoffice.Catalogue.Category.infrastructure.BackofficeCategoryUpdateController:
+    class: ../../../../Contexts/Backoffice/Catalogue/Category/infrastructure/controller/update/BackofficeCategoryUpdateController
+    arguments: []
+
+  Backoffice.Catalogue.Category.infrastructure.BackofficeCategoryPaginateController:
+    class: ../../../../Contexts/Backoffice/Catalogue/Category/infrastructure/controller/paginate/BackofficeCategoryPaginateController
+    arguments: []
+
+  Backoffice.Catalogue.Category.infrastructure.BackofficeCategoryDeleteController:
+    class: ../../../../Contexts/Backoffice/Catalogue/Category/infrastructure/controller/delete/BackofficeCategoryDeleteController
+    arguments: []
+  
+  # Product 
+
+  Backoffice.Catalogue.Product.BackofficeProductRepository:
+    class: ../../../../Contexts/Backoffice/Catalogue/Product/infrastructure/persistence/BackofficeProductWebApiClient
+    arguments: []
+
+  Backoffice.Catalogue.Product.BackofficeProductSave:
+    class: ../../../../Contexts/Backoffice/Catalogue/Product/application/save/BackofficeProductSave
+    arguments: ['@Backoffice.Catalogue.Product.BackofficeProductRepository']
+
+  Backoffice.Catalogue.Product.BackofficeProductUpdate:
+    class: ../../../../Contexts/Backoffice/Catalogue/Product/application/update/BackofficeProductUpdate
+    arguments: ['@Backoffice.Catalogue.Product.BackofficeProductRepository']
+
+  Backoffice.Catalogue.Product.BackofficeProductPaginate:
+    class: ../../../../Contexts/Backoffice/Catalogue/Product/application/update/BackofficeProductUpdate
+    arguments: ['@Backoffice.Catalogue.Product.BackofficeProductRepository']
+
+  Backoffice.Catalogue.Product.BackofficeProductRetrieveDetail:
+    class: ../../../../Contexts/Backoffice/Catalogue/Product/application/retrieveDetail/BackofficeProductRetrieveDetail
+    arguments: ['@Backoffice.Catalogue.Product.BackofficeProductRepository']
+
+  Backoffice.Catalogue.Product.BackofficeProductSaveController:
+    class: ../../../../Contexts/Backoffice/Catalogue/Product/infrastructure/controller/save/BackofficeProductSaveController
+    arguments: []
+
+  Backoffice.Catalogue.Product.BackofficeProductUpdateController:
+    class: ../../../../Contexts/Backoffice/Catalogue/Product/infrastructure/controller/update/BackofficeProductUpdateController
+    arguments: []
+
+  Backoffice.Catalogue.Product.BackofficeProductPaginateController:
+    class: ../../../../Contexts/Backoffice/Catalogue/Product/infrastructure/controller/paginate/BackofficeProductPaginateController
+    arguments: []
+
+  Backoffice.Catalogue.Product.BackofficeProductRetrieveDetailController:
+    class: ../../../../Contexts/Backoffice/Catalogue/Product/infrastructure/controller/retrieveDetail/BackofficeProductRetrieveDetailController
+    arguments: []
+
+  # Product class
+  Backoffice.Catalogue.ProductClass.BackofficeProductClassRepository:
+    class: ../../../../Contexts/Backoffice/Catalogue/Product-Class/infrastructure/persistence/BackofficeProductClassWebApiClient
+    arguments: []
+
+  Backoffice.Catalogue.ProductClass.BackofficeProductClassSave:
+    class: ../../../../Contexts/Backoffice/Catalogue/Product-Class/application/save/BackofficeProductClassSave
+    arguments: ['@Backoffice.Catalogue.ProductClass.BackofficeProductClassRepository']
+  
+  Backoffice.Catalogue.ProductClass.BackofficeProductClassPaginate:
+    class: ../../../../Contexts/Backoffice/Catalogue/Product-Class/application/paginate/BackofficeProductClassPaginate
+    arguments: ['@Backoffice.Catalogue.ProductClass.BackofficeProductClassRepository']
+
+  Backoffice.Catalogue.ProductClass.BackofficeProductClassSaveController:
+    class: ../../../../Contexts/Backoffice/Catalogue/Product-Class/infrastructure/controller/save/BackofficeProductClassSaveController
+    arguments: []
+
+  Backoffice.Catalogue.ProductClass.BackofficeProductClassPaginateController:
+    class: ../../../../Contexts/Backoffice/Catalogue/Product-Class/infrastructure/controller/paginate/BackofficeProductClassPaginateController
+    arguments: []
+
+  # # Customer # Customers # Customers
+
+  Backoffice.Customers.BackofficeCustomerRepository:
+    class: ../../../../Contexts/Backoffice/Customers/infrastructure/persistence/BackofficeCustomerWebApiClient
+    arguments: []
+
+  Backoffice.Customers.BackofficeCustomerSave:
+    class: ../../../../Contexts/Backoffice/Customers/application/save/BackofficeCustomerSave
+    arguments: ['@ Backoffice.Customers.BackofficeCustomerRepository']
+
+  Backoffice.Customers.BackofficeCustomerPaginate:
+    class: ../../../../Contexts/Backoffice/Customers/application/paginate/BackofficeCustomerPaginate
+    arguments: ['@ Backoffice.Customers.BackofficeCustomerRepository']
+
+  Backoffice.Customers.BackofficeCustomerSaveController:
+    class: ../../../../Contexts/Backoffice/Customers/infrastructure/controller/save/BackofficeCustomerSaveController
+    arguments: []
+
+  Backoffice.Customers.BackofficeCustomerPaginateController:
+    class: ../../../../Contexts/Backoffice/Customers/infrastructure/controller/paginate/BackofficeCustomerPaginateController
+    arguments: []
+
+  # # Subscribers  # Subscribers  # Subscribers
+
+  Backoffice.Subscribers.BackofficeSubscribersRepository:
+    class: ../../../../Contexts/Backoffice/Subscribers/infrastructure/persistence/BackofficeSubscriberWebApiClient
+    arguments: []
+
+  Backoffice.Subscribers.BackofficeSubscriberSave:
+    class: ../../../../Contexts/Backoffice/Subscribers/application/save/BackofficeSubscriberSave
+    arguments: ['@Backoffice.Subscribers.BackofficeSubscribersRepository']
+
+  Backoffice.Subscribers.BackofficeSubscriberDelete:
+    class: ../../../../Contexts/Backoffice/Subscribers/application/delete/BackofficeSubscriberDelete
+    arguments: ['@Backoffice.Subscribers.BackofficeSubscribersRepository']
+
+  Backoffice.Subscribers.BackofficeSubscriberTotal:
+    class: ../../../../Contexts/Backoffice/Subscribers/application/total/BackofficeSubscriberTotal
+    arguments: ['@Backoffice.Subscribers.BackofficeSubscribersRepository']
+
+  Backoffice.Subscribers.BackofficeSubscriberPaginate:
+    class: ../../../../Contexts/Backoffice/Subscribers/application/paginate/BackofficeSubscriberPaginate
+    arguments: ['@Backoffice.Subscribers.BackofficeSubscribersRepository']
+
+  Backoffice.Subscribers.BackofficeSubscriberUpdate:
+    class: ../../../../Contexts/Backoffice/Subscribers/application/update/BackofficeSubscriberUpdate
+    arguments: ['@Backoffice.Subscribers.BackofficeSubscribersRepository']
+
+  Backoffice.Subscribers.BackofficeSubscriberDeleteController:
+    class: ../../../../Contexts/Backoffice/Subscribers/infrastructure/controller/delete/BackofficeSubscriberDeleteController
+    arguments: []
+
+  Backoffice.Subscribers.BackofficeSubscriberTotalController:
+    class: ../../../../Contexts/Backoffice/Subscribers/infrastructure/controller/total/BackofficeSubscriberTotalController
+    arguments: []
+
+  Backoffice.Subscribers.BackofficeSubscriberPaginateController:
+    class: ../../../../Contexts/Backoffice/Subscribers/infrastructure/controller/paginate/BackofficeSubscriberPaginateController
+    arguments: []
+
+  Backoffice.Subscribers.BackofficeSubscriberUpdateController:
+    class: ../../../../Contexts/Backoffice/Subscribers/infrastructure/controller/update/BackofficeSubscriberUpdateController
+    arguments: []
+
+  Backoffice.Subscribers.BackofficeSubscriberSaveController:
+    class: ../../../../Contexts/Backoffice/Subscribers/infrastructure/controller/save/BackofficeSubscriberSaveController
+    arguments: []
+  
+  # # Partner  # Partner  # Partner 
+
+  Backoffice.Partner.Partner.BackofficePartnerRepository:
+    class: ../../../../Contexts/Backoffice/Partner/Partner/infrastructure/persistence/BackofficePartnerWebApiClient
+    arguments: []
+
+  Backoffice.Partner.Partner.BackofficePartnerSave:
+    class: ../../../../Contexts/Backoffice/Partner/Partner/application/save/BackofficePartnerSave
+    arguments: ['@Backoffice.Partner.Partner.BackofficePartnerRepository']
+
+  Backoffice.Partner.Partner.BackofficePartnerSaveController:
+    class: ../../../../Contexts/Backoffice/Partner/Partner/infrastructure/controller/save/BackofficePartnerSaveController
+    arguments: []
+
+   # StockRecord  # StockRecord  # StockRecord 
+
+  Backoffice.Partner.StockRecord.BackofficeStockRecordRepository:
+    class: ../../../../Contexts/Backoffice/Partner/StockRecord/infrastructure/persistence/BackofficeStockRecordWebApiClient
+    arguments: []
+
+  Backoffice.Partner.StockRecord.BackofficeStockRecordSave:
+    class: ../../../../Contexts/Backoffice/Partner/StockRecord/application/save/BackofficeStockRecordSave
+    arguments: ['@Backoffice.Partner.StockRecord.BackofficeStockRecordRepository']
+
+  Backoffice.Partner.StockRecord.BackofficeStockRecordSaveController:
+    class: ../../../../Contexts/Backoffice/Partner/StockRecord/infrastructure/controller/save/BackofficeStockRecordSaveController
+    arguments: []

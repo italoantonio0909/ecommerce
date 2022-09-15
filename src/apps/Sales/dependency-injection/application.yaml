@@ -1,0 +1,5 @@
+imports: 
+  - { resource: ./Backoffice/application.yaml }
+  - { resource: ./Shared/application.yaml }
+  - { resource: ./Sales/application.yaml}
+  - { resource: ./Notifications/application.yaml}

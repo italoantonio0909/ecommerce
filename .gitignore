@@ -1,0 +1,6 @@
+.env
+node_modules
+firebase.json
+yarn-error.log
+logs
+rabbit-db

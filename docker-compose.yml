@@ -1,0 +1,29 @@
+version: '2.2'
+
+x-app-service: &default-app
+  build: .
+  command: ''
+  volumes:
+    - .:/code:delegated
+    - node_modules:/code/node_modules:delegated
+
+services:
+  app:
+    <<: *default-app
+
+  backoffice-application:
+    <<: *default-app
+    command: bash -c "npm run start"
+    ports:
+      - 3000:3000
+
+  rabbitmq:
+    image: 'rabbitmq:3.8-management'
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+volumes:
+  node_modules:
+  esdata:
+    driver: local

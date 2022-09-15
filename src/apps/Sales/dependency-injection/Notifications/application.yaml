@@ -1,0 +1,14 @@
+services:
+  Notifications.email.EmailSender:
+    class: ../../../../Contexts/Sales/Notifications/infrastructure/EmailSenderService
+    arguments: []
+
+  Notifications.email.SendWelcomeSubscriberEmail:
+   class: ../../../../Contexts/Sales/Notifications/application/SendWelcomeSubscriberEmail/SendWelcomeSubscriber
+   arguments: ["@Notifications.email.EmailSender"]
+
+  Notifications.email.SendWelcomeSubscribeOnSusbcriberSaved:
+    class: ../../../../Contexts/Sales/Notifications/application/SendWelcomeSubscriberEmail/SendWelcomeSubscribeOnSusbcriberSaved
+    arguments: ["@Notifications.email.SendWelcomeSubscriberEmail", '@Shared.Logger']
+    tags:
+      - { name: 'domainEventSubscriber' }
