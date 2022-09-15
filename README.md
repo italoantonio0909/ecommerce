@@ -47,3 +47,9 @@ In addition, this project is aimed at the open source software development commu
 - Next steps(Phase 2) section attempts to reflect feedback, is not to be considered final, it may be updated continuously.
 
 ### Limitations & Unknowns
+Domain events will have a consistency, their synchronization with event subscribers is assumed.
+
+### Out of Scope
+- Any form of user data collection: no data will be collected in this project.
+- error handling rery mechanisms.
+- The system will be divided into multiple phases of development, the cost estimate will not be updated from the initial estimate, which is a worst case scenario.
