@@ -12,3 +12,13 @@ services:
     arguments: ["@Notifications.email.SendWelcomeSubscriberEmail", '@Shared.Logger']
     tags:
       - { name: 'domainEventSubscriber' }
+
+  Notifications.email.SendWelcomeCustomerEmail:
+   class: ../../../../Contexts/Sales/Notifications/application/SendWelcomeCustomerEmail/SendWelcomeCustomer
+   arguments: ["@Notifications.email.EmailSender"]
+
+  Notifications.email.SendWelcomeCustomerEmailOnCustomerSaved:
+    class: ../../../../Contexts/Sales/Notifications/application/SendWelcomeCustomerEmail/SendWelcomeCustomerOnCustomerSaved
+    arguments: ["@Notifications.email.SendWelcomeCustomerEmail", '@Shared.Logger']
+    tags:
+      - { name: 'domainEventSubscriber' }
