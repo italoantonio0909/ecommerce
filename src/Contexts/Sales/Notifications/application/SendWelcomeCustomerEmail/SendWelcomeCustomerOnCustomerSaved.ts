@@ -6,7 +6,7 @@ import Logger from '../../../../Shared/domain/Logger';
 import { EmailAddress } from '../../domain/EmailAddress';
 
 export class SendWelcomeCustomerOnCustomerSaved implements DomainEventSubscriber<CustomerSavedDomainEvent>{
-    constructor(private subscriberSendWelcomeEmail: SendWelcomeCustomer, private logger: Logger) { }
+    constructor(private customerSendWelcomeEmail: SendWelcomeCustomer, private logger: Logger) { }
 
     subscribedTo(): Array<DomainEventClass> {
         return [CustomerSavedDomainEvent]
@@ -14,7 +14,7 @@ export class SendWelcomeCustomerOnCustomerSaved implements DomainEventSubscriber
 
     async on(domainEvent: CustomerSavedDomainEvent): Promise<void> {
         const email = new EmailAddress(domainEvent.email);
-        await this.subscriberSendWelcomeEmail.run(email);
+        await this.customerSendWelcomeEmail.run(email);
         this.logger.info('Send welcome customer on customer saved');
     }
 }

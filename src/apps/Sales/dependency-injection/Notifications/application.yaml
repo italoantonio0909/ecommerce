@@ -19,6 +19,6 @@ services:
 
   Notifications.email.SendWelcomeCustomerEmailOnCustomerSaved:
     class: ../../../../Contexts/Sales/Notifications/application/SendWelcomeCustomerEmail/SendWelcomeCustomerOnCustomerSaved
-    arguments: ["Notifications.email.SendWelcomeCustomerEmail", '@Shared.Logger']
+    arguments: ["@Notifications.email.SendWelcomeCustomerEmail", '@Shared.Logger']
     tags:
       - { name: 'domainEventSubscriber' }
