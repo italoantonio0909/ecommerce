@@ -22,11 +22,17 @@ services:
 
   Sales.customers.CustomerSave:
     class: ../../../../Contexts/Sales/Customers/application/save/CustomerSave
-    arguments: ['@Sales.customers.CustomerRepository']
+    arguments: ['@Sales.customers.CustomerRepository', '@Shared.EventBus']
+
+  Sales.customers.CustomerSaveCommandHandler:
+    class: ../../../../Contexts/Sales/Customers/application/save/CustomerSaveCommandHandler
+    arguments: ['@Sales.customers.CustomerSave']
+    tags:
+      - { name: 'commandHandler' }
 
   Sales.customers.CustomerSaveController:
-    class: ../../../../Contexts/Sales/Customers/infrastructure/controller/save/CustomerSaveController
-    arguments: []
+    class: ../../../../apps/Sales/Customers/controllers/CustomerSaveController
+    arguments: ['@Shared.CommandBus']
 
   # Subscribers  # Subscribers  # Subscribers
   Sales.subscribers.SubscriberRepository:

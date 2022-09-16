@@ -1,21 +1,23 @@
 import { DomainEvent } from '../../../Shared/domain/DomainEvent';
 
-type CustomerSavedDomainEventBody = {
-    readonly eventName: string;
-    readonly email: string;
-};
+type CustomerSavedEventBody = {
+    eventName: string;
+    email: string;
+}
 
 export class CustomerSavedDomainEvent extends DomainEvent {
-    static readonly EVENT_NAME = "customer.saved";
-    readonly email: string;
 
-    constructor({ email }: { email: string; }) {
+    readonly email: string;
+    readonly occurredOn: Date;
+    static EVENT_NAME = 'customer.saved';
+
+    constructor({ email }: { email: string, occurredOn?: Date; }) {
         super(CustomerSavedDomainEvent.EVENT_NAME);
 
-        email = this.email;
+        this.email = email;
     }
 
-    toPrimitive(): CustomerSavedDomainEventBody {
+    toPrimitive(): CustomerSavedEventBody {
         return {
             eventName: CustomerSavedDomainEvent.EVENT_NAME,
             email: this.email,
@@ -23,10 +25,12 @@ export class CustomerSavedDomainEvent extends DomainEvent {
     }
 
     static fromPrimitives(
-        body: CustomerSavedDomainEventBody,
+        body: CustomerSavedEventBody,
+        ocurredOn: Date
     ): DomainEvent {
         return new CustomerSavedDomainEvent({
-            email: body.email
-        });
+            email: body.email,
+            occurredOn: ocurredOn
+        })
     }
 }

@@ -26,15 +26,11 @@ export class Customer extends AggregateRoot {
     this.displayName = displayName;
   }
 
-  static create(email: string, password: string, displayName: string): Customer {
+  static create(email: CustomerEmail, password: CustomerPassword, displayName: CustomerDisplayName): Customer {
 
-    const customer = new Customer(
-      new CustomerEmail(email),
-      new CustomerPassword(password),
-      new CustomerDisplayName(displayName)
-    );
+    const customer = new Customer(email, password, displayName);
 
-    customer.record(new CustomerSavedDomainEvent({ email }));
+    customer.record(new CustomerSavedDomainEvent({ email: email.value }));
 
     return customer;
   }

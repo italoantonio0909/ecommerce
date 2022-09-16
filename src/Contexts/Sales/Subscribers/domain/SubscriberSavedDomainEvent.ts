@@ -9,11 +9,13 @@ export class SubscriberSavedDomainEvent extends DomainEvent {
     static readonly EVENT_NAME = 'subscriber.save';
 
     readonly email: string;
+    readonly occurredOn: Date;
 
     constructor({ occurredOn, email }: { occurredOn?: Date; email: string; }) {
         super(SubscriberSavedDomainEvent.EVENT_NAME, occurredOn);
 
         this.email = email;
+        this.occurredOn = occurredOn;
     }
 
     toPrimitive(): SubscriberSavedDomainEventBody {
