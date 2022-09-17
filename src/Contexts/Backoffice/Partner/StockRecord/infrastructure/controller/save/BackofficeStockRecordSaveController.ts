@@ -1,4 +1,4 @@
-import { Response, Request, NextFunction } from 'express';
+import { Response, Request } from 'express';
 import { Controller } from '../../../../../../../apps/Sales/controllers/Controller';
 import { BackofficeStockRecord } from '../../../domain/BackofficeStockRecord';
 import { BackofficeStockRecordSave } from '../../../application/save/BackofficeStockRecordSave';
@@ -11,7 +11,7 @@ export class BackofficeStockRecordSaveController implements Controller {
         private readonly stockRecord: BackofficeStockRecordSave
     ) { }
 
-    async run(req: Request, res: Response, next: NextFunction) {
+    async run(req: Request, res: Response) {
         try {
             const low_stock_threshold: number = req.body.low_stock_threshold;
             const price: number = req.body.price;
@@ -32,7 +32,6 @@ export class BackofficeStockRecordSaveController implements Controller {
             );
             return res.status(201).send();
         } catch (error) {
-            next(error)
         }
     }
 }

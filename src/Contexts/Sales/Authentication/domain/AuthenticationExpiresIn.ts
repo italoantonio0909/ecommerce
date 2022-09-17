@@ -2,6 +2,7 @@ import { NumberValueObject } from '../../../Shared/domain/value-object/NumberVal
 import { InvalidArgumentError } from '../../../Shared/domain/value-object/InvalidArgumentError';
 
 export class AuthenticationExpiresIn extends NumberValueObject {
+
     constructor(value: number) {
         super(value);
     }

@@ -8,6 +8,7 @@ import httpStatus from 'http-status';
 import cookieParser from 'cookie-parser';
 import * as http from 'http';
 import { registerRoutes } from './routes';
+import { Request, NextFunction, Response } from 'express';
 
 export class Server {
 
@@ -30,15 +31,15 @@ export class Server {
 
         registerRoutes(router);
 
-        router.use((err: any, req: any, res: any, next: any) => {
-            res.status(httpStatus.BAD_REQUEST).json({ message: err.message });
+        router.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+            res.status(httpStatus.BAD_REQUEST).send(err.message);
         });
     }
 
     async listen(): Promise<void> {
         return new Promise(resolve => {
             this.httpServer = this.express.listen(this.port, () => {
-                console.log(`🚀 Server listening on port ${this.port}`);
+                console.log(`🚀 Server sales listening on port ${this.port}`);
                 resolve();
             });
         });

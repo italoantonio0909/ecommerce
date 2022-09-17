@@ -1,5 +1,5 @@
-import { Response, Request, NextFunction } from 'express';
+import { Response, Request } from 'express';
 
 export interface Controller {
-    run(req: Request, res: Response, next: NextFunction): void
+    run(req: Request, res: Response): void
 }
