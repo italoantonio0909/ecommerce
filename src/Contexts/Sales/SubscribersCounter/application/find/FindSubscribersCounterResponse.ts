@@ -1,4 +1,4 @@
-export class FindCustomerCounterResponse {
+export class FindSubscribersCounterResponse {
     readonly total: number;
 
     constructor(total: number) {

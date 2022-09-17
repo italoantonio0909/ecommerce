@@ -54,30 +54,30 @@ services:
     arguments: ['@Shared.CommandBus']
 
   # Blog   #Blog  # Blog
-  Sales.post.PostRepository:
-    class: ../../../../Contexts/Sales/Blog/infrastructure/persistence/BlogWebApiClient
-    arguments: []
+  # Sales.post.PostRepository:
+  #   class: ../../../../Contexts/Sales/Blog/infrastructure/persistence/BlogWebApiClient
+  #   arguments: []
 
-  Sales.post.PostPaginate:
-    class: ../../../../Contexts/Sales/Blog/application/paginate/PostPaginate
-    arguments: ['@Sales.post.PostRepository']
+  # Sales.post.PostPaginate:
+  #   class: ../../../../Contexts/Sales/Blog/application/paginate/PostPaginate
+  #   arguments: ['@Sales.post.PostRepository']
 
-  Sales.post.PostAddComment:
-    class: ../../../../Contexts/Sales/Blog/application/addComment/PostAddComment
-    arguments: ['@Sales.post.PostRepository']
+  # Sales.post.PostAddComment:
+  #   class: ../../../../Contexts/Sales/Blog/application/addComment/PostAddComment
+  #   arguments: ['@Sales.post.PostRepository']
 
-  Sales.post.PostRetrieveDetail:
-    class: ../../../../Contexts/Sales/Blog/application/retrieveDetail/PostRetrieveDetail
-    arguments: ['@Sales.post.PostRepository']
+  # Sales.post.PostRetrieveDetail:
+  #   class: ../../../../Contexts/Sales/Blog/application/retrieveDetail/PostRetrieveDetail
+  #   arguments: ['@Sales.post.PostRepository']
   
-  Sales.post.PostPaginateController:
-    class: ../../../../Contexts/Sales/Blog/infrastructure/controller/paginate/PostPaginateController
-    arguments: []
+  # Sales.post.PostPaginateController:
+  #   class: ../../../../Contexts/Sales/Blog/infrastructure/controller/paginate/PostPaginateController
+  #   arguments: []
 
-  Sales.post.PostAddCommentController:
-    class: ../../../../Contexts/Sales/Blog/infrastructure/controller/addComment/PostAddCommentController
-    arguments: []
+  # Sales.post.PostAddCommentController:
+  #   class: ../../../../Contexts/Sales/Blog/infrastructure/controller/addComment/PostAddCommentController
+  #   arguments: []
 
-  Sales.post.PostRetrieveDetailController:
-    class: ../../../../Contexts/Sales/Blog/infrastructure/controller/retrieveDetail/PostRetrieveDetailController
-    arguments: []
+  # Sales.post.PostRetrieveDetailController:
+  #   class: ../../../../Contexts/Sales/Blog/infrastructure/controller/retrieveDetail/PostRetrieveDetailController
+  #   arguments: []
