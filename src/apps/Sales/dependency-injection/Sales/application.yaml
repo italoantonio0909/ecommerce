@@ -1,19 +1,19 @@
 services: 
   Sales.authentication.AuthenticationRepository:
-    class: ../../../../Contexts/Sales/Authentication/infrastructure/persistence/AuthenticationWebApiClient
+    class: ../../../../Contexts/Sales/Authentication/infrastructure/AuthenticationWebApiClient
     arguments: []
 
   Sales.authentication.AuthenticationSignIn:
-    class: ../../../../Contexts/Sales/Authentication/application/signIn/AuthenticationSignIn
+    class: ../../../../Contexts/Sales/Authentication/application/AuthenticationSignIn
     arguments: ['@Sales.authentication.AuthenticationRepository']
 
   Sales.authentication.AuthenticationSignInController:
-    class: ../../../../Contexts/Sales/Authentication/infrastructure/controller/AuthenticationSignInController
-    arguments: []
-  
-  Sales.authentication.AuthenticationSignOutController:
-    class: ../../../../Contexts/Sales/Authentication/infrastructure/controller/AuthenticationSignOutController
-    arguments: []
+    class: ../../../../apps/Sales/Authentication/controllers/AuthenticationSignInController
+    arguments: ['@Shared.CommandBus']
+
+  Sales.authentication.AuthenticationSignInCommandHandler:
+    class: ../../../../Contexts/Sales/Authentication/application/AuthenticationSignInCommandHandler
+    arguments: ['@Sales.authentication.AuthenticationSignIn']
 
   # Customers  # Customers  # Customers
   Sales.customers.CustomerRepository:

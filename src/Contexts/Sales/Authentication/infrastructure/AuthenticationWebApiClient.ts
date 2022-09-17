@@ -5,10 +5,7 @@ import { AuthenticationExpiresIn } from '../domain/AuthenticationExpiresIn';
 
 export class SignInWebApiClient implements AuthenticationRepository {
 
-    async signIn(
-        idToken: AuthenticationIdToken,
-        expiresIn: AuthenticationExpiresIn
-    ): Promise<string> {
+    async createCookieSession(idToken: AuthenticationIdToken, expiresIn: AuthenticationExpiresIn): Promise<string> {
 
         return await auth.createSessionCookie(idToken.value, { expiresIn: expiresIn.value });
     }

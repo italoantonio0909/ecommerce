@@ -1,4 +1,3 @@
-import { AuthenticationRepository } from '../domain/AuthenticationRepository';
 import { Authentication } from '../domain/Authentication';
 import { AuthenticationForbidden } from '../domain/AuthenticationForbidden';
 import { AuthenticationIdToken } from '../domain/AuthenticationIdToken';
@@ -7,15 +6,12 @@ import { AuthenticationCookieCsrfToken } from '../domain/AuthenticationCookieCsr
 import { AuthenticationEmail } from '../domain/AuthenticationEmail';
 import { AuthenticationExpiresIn } from '../domain/AuthenticationExpiresIn';
 import { EventBus } from '../../../Shared/domain/EventBus';
+import { AuthenticationRepository } from '../domain/AuthenticationRepository';
 
 export class AuthenticationSignIn {
-    constructor(private repository: AuthenticationRepository, private eventBus: EventBus) { }
+    constructor(private authentication: AuthenticationRepository, private eventBus: EventBus) { }
 
-    async signIn(
-        idToken: AuthenticationIdToken,
-        csrfToken: AuthenticationCsrfToken,
-        cookieCsrfToken: AuthenticationCookieCsrfToken,
-        email: AuthenticationEmail): Promise<string> {
+    async run(idToken: AuthenticationIdToken, csrfToken: AuthenticationCsrfToken, cookieCsrfToken: AuthenticationCookieCsrfToken, email: AuthenticationEmail): Promise<string> {
 
         // if (csrfToken !== cookieCsrfToken) {
         //     throw new AuthenticationForbidden();
@@ -24,13 +20,7 @@ export class AuthenticationSignIn {
         const expiresIn = new AuthenticationExpiresIn(60 * 60 * 24 * 5 * 1000);
         const auth = Authentication.create(idToken, expiresIn, cookieCsrfToken, csrfToken, email);
 
-        const sessionCookie = await this.repository.signIn(
-            auth.idToken,
-            auth.expiresIn,
-            auth.csrfToken,
-            auth.cookieCsrfToken,
-            auth.email
-        );
+        const sessionCookie = await this.authentication.createCookieSession(auth.idToken, auth.expiresIn);
 
         await this.eventBus.publish(auth.pullDomainEvents());
 
