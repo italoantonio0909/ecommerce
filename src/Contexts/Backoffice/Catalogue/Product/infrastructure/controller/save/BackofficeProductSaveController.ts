@@ -1,5 +1,5 @@
 import { Controller } from '../../../../../../../apps/Sales/controllers/Controller';
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { BackofficeProduct } from '../../../domain/BackofficeProduct';
 import { ProductStructure } from '../../../domain/BackofficeProductStructure';
 import { BackofficeProductClass } from '../../../../Product-Class/domain/ProductClass';
@@ -11,7 +11,7 @@ export class BackofficeProductSaveController implements Controller {
         private readonly product: BackofficeProductSave
     ) { }
 
-    async run(req: Request, res: Response, next: NextFunction) {
+    async run(req: Request, res: Response) {
         try {
             const structure: ProductStructure = req.body.structure;
             const is_public: boolean = req.body.is_public;
@@ -41,7 +41,6 @@ export class BackofficeProductSaveController implements Controller {
 
             return res.status(201).send(result)
         } catch (error) {
-            next(error)
         }
     }
 }

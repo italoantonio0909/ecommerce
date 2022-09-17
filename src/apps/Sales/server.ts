@@ -31,7 +31,7 @@ export class Server {
         registerRoutes(router);
 
         router.use((err: any, req: any, res: any, next: any) => {
-            res.status(httpStatus.BAD_REQUEST).json({ message: err.message });
+            res.status(httpStatus.BAD_REQUEST).send(err.message);
         });
     }
 

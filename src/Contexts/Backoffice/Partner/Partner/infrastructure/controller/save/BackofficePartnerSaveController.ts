@@ -1,4 +1,4 @@
-import { Response, Request, NextFunction } from 'express';
+import { Response, Request } from 'express';
 import { Controller } from '../../../../../../../apps/Sales/controllers/Controller';
 import { Customer } from "../../../../../../Sales/Customers/domain/Customer";
 import { BackofficePartnerSave } from '../../../application/save/BackofficePartnerSave';
@@ -9,7 +9,7 @@ export class BackofficePartnerSaveController implements Controller {
         private readonly partner: BackofficePartnerSave
     ) { }
 
-    async run(req: Request, res: Response, next: NextFunction) {
+    async run(req: Request, res: Response) {
         try {
             const code = req.body.code;
             const name = req.body.name;
@@ -19,7 +19,6 @@ export class BackofficePartnerSaveController implements Controller {
 
             return res.status(201).send(result)
         } catch (error) {
-            next(error)
         }
     }
 }

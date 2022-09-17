@@ -1,5 +1,5 @@
 import { Controller } from '../../../../../../../apps/Sales/controllers/Controller';
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { BackofficeProductClassSave } from '../../../application/save/BackofficeProductClassSave';
 
 export class BackofficeProductClassSaveController implements Controller {
@@ -7,7 +7,7 @@ export class BackofficeProductClassSaveController implements Controller {
         private readonly product: BackofficeProductClassSave
     ) { }
 
-    async run(req: Request, res: Response, next: NextFunction) {
+    async run(req: Request, res: Response) {
         try {
             const name: string = req.body.name;
             const required_shipping: boolean = req.body.required_shipping;
@@ -16,7 +16,6 @@ export class BackofficeProductClassSaveController implements Controller {
             const result = await this.product.create(name, required_shipping, track_stock);
             return res.status(201).send(result)
         } catch (error) {
-            next(error)
         }
     }
 }

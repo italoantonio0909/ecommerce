@@ -1,12 +1,12 @@
 import { Controller } from '../../../../../../../apps/Sales/controllers/Controller';
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { BackofficePostSave } from '../../../application/save/BackofficePostSave';
 
 export class BackofficePostSaveController implements Controller {
     constructor(private readonly post: BackofficePostSave
     ) { }
 
-    async run(req: Request, res: Response, next: NextFunction) {
+    async run(req: Request, res: Response) {
         try {
             const title = req.body.title;
             const meta_description = req.body.meta_description;
@@ -19,7 +19,7 @@ export class BackofficePostSaveController implements Controller {
 
             return res.status(201).send()
         } catch (error) {
-            next(error)
+
         }
     }
 }

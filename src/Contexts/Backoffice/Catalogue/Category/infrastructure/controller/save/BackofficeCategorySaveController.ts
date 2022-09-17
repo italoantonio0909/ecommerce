@@ -1,4 +1,4 @@
-import { Response, Request, NextFunction } from 'express';
+import { Response, Request } from 'express';
 import { Controller } from '../../../../../../../apps/Sales/controllers/Controller';
 import { BackofficeCategorySave } from '../../../application/save/BackofficeCategorySave';
 
@@ -8,7 +8,7 @@ export class BackofficeCategorySaveController implements Controller {
         private readonly category: BackofficeCategorySave
     ) { }
 
-    async run(req: Request, res: Response, next: NextFunction) {
+    async run(req: Request, res: Response) {
         try {
             const name: string = req.body.name;
             const description: string = req.body.description;
@@ -24,7 +24,7 @@ export class BackofficeCategorySaveController implements Controller {
             )
             return res.status(201).send(result);
         } catch (error) {
-            next(error)
+
         }
     }
 }

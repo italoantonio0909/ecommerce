@@ -1,4 +1,4 @@
-import { Response, Request, NextFunction } from 'express';
+import { Response, Request } from 'express';
 import { Controller } from '../../../../../../../apps/Sales/controllers/Controller';
 import { BackofficeCategory } from "../../../domain/BackofficeCategory";
 import { BackofficeCategoryDelete } from '../../../application/delete/BackofficeCategoryDelete';
@@ -9,14 +9,13 @@ export class BackofficeCategoryDeleteController implements Controller {
         private readonly category: BackofficeCategoryDelete
     ) { }
 
-    async run(req: Request, res: Response, next: NextFunction) {
+    async run(req: Request, res: Response) {
         try {
             const { uid } = req.params;
             const data = req.body as BackofficeCategory
             const result = await this.category.delete(uid, data)
             return res.status(201).send(result)
         } catch (error) {
-            next(error)
         }
     }
 }

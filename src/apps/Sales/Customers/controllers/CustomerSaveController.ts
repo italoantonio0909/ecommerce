@@ -1,4 +1,4 @@
-import { Response, Request, NextFunction } from 'express';
+import { Response, Request } from 'express';
 import { Controller } from '../../controllers/Controller';
 import { CommandBus } from '../../../../Contexts/Shared/domain/CommandBus';
 import { CustomerSaveCommand } from '../../../../Contexts/Sales/Customers/application/save/CustomerSaveCommand';
@@ -8,7 +8,7 @@ export class CustomerSaveController implements Controller {
 
     constructor(private commandBus: CommandBus) { }
 
-    async run(req: Request, res: Response, next: NextFunction) {
+    async run(req: Request, res: Response) {
         try {
             const email = req.body.email;
             const password = req.body.password;

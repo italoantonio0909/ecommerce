@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { Controller } from '../../../../../../apps/Sales/controllers/Controller';
 import { BackofficeCustomerSave } from '../../../application/save/BackofficeCustomerSave';
 
@@ -7,7 +7,7 @@ export class BackofficeCustomerSaveController implements Controller {
         private readonly customerCreate: BackofficeCustomerSave
     ) { }
 
-    async run(req: Request, res: Response, next: NextFunction) {
+    async run(req: Request, res: Response) {
         try {
             const email = req.body.email;
             const password = req.body.password;
@@ -17,7 +17,6 @@ export class BackofficeCustomerSaveController implements Controller {
             await this.customerCreate.save(email, password, phoneNumber, displayName);
             return res.status(201).send()
         } catch (error) {
-            next(error)
         }
     }
 }

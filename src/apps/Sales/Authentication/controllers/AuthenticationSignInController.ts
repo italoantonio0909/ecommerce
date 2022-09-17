@@ -1,4 +1,4 @@
-import { Response, Request, NextFunction, CookieOptions } from 'express';
+import { Response, Request, CookieOptions } from 'express';
 import { Controller } from '../../controllers/Controller';
 import { AuthenticationSignIn } from '../../../../Contexts/Sales/Authentication/application/AuthenticationSignIn';
 import { CommandBus } from '../../../../Contexts/Shared/domain/CommandBus';
@@ -8,7 +8,7 @@ export class AuthenticationSignInController implements Controller {
 
     constructor(private readonly commandBus: CommandBus) { }
 
-    async run(req: Request, res: Response, _: NextFunction) {
+    async run(req: Request, res: Response) {
         try {
             const idToken = req.body.idToken;
             const csrfToken = req.body.csrfToken;
