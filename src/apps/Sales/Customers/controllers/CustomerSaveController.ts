@@ -9,21 +9,18 @@ export class CustomerSaveController implements Controller {
     constructor(private commandBus: CommandBus) { }
 
     async run(req: Request, res: Response) {
-        try {
-            const email = req.body.email;
-            const password = req.body.password;
-            const displayName = req.body.displayName;
+        const id = req.body.id;
+        const email = req.body.email;
+        const password = req.body.password;
+        const displayName = req.body.displayName;
 
-            const command = new CustomerSaveCommand({
-                email,
-                password,
-                displayName
-            });
+        try {
+            const command = new CustomerSaveCommand({ id, email, password, displayName });
 
             await this.commandBus.dispatch(command);
 
         } catch (error) {
-            res.status(httpStatus.BAD_REQUEST).send();
+            res.status(httpStatus.BAD_REQUEST).send(error.message);
         }
 
         res.status(httpStatus.CREATED).send();
