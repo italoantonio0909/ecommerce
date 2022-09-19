@@ -1,3 +1,3 @@
-import { NumberValueObject } from '../../../Shared/domain/value-object/NumberValueObject';
+import { DateValueObject } from '../../../Shared/domain/value-object/DateValueObject';
 
-export class SubscriberModifiedAt extends NumberValueObject { }
+export class SubscriberModifiedAt extends DateValueObject { }

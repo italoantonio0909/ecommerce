@@ -13,15 +13,16 @@ export class Subscriber extends AggregateRoot {
   readonly created_at: SubscriberCreatedAt;
   readonly modified_at: SubscriberModifiedAt;
 
-  constructor(email: SubscriberEmail, status: SubscriberStatus, created_at: SubscriberCreatedAt) {
+  constructor(id: SubscriberId, email: SubscriberEmail, status: SubscriberStatus, created_at: SubscriberCreatedAt) {
     super();
+    this.id = id;
     this.email = email;
     this.status = status;
     this.created_at = created_at;
   }
 
-  static create(email: SubscriberEmail, status: SubscriberStatus, created_at: SubscriberCreatedAt): Subscriber {
-    const subscriber = new Subscriber(email, status, created_at);
+  static create(id: SubscriberId, email: SubscriberEmail, status: SubscriberStatus, created_at: SubscriberCreatedAt): Subscriber {
+    const subscriber = new Subscriber(id, email, status, created_at);
 
     subscriber.record(
       new SubscriberSavedDomainEvent({ email: subscriber.email.value })
@@ -30,8 +31,9 @@ export class Subscriber extends AggregateRoot {
     return subscriber;
   }
 
-  static fromPrimitives(email: string, status: boolean, created_at: number): Subscriber {
+  static fromPrimitives(id: string, email: string, status: boolean, created_at: Date): Subscriber {
     return new Subscriber(
+      new SubscriberId(id),
       new SubscriberEmail(email),
       new SubscriberStatus(status),
       new SubscriberCreatedAt(created_at));
@@ -39,6 +41,7 @@ export class Subscriber extends AggregateRoot {
 
   toPrimitives() {
     return {
+      id: this.id.value,
       email: this.email.value,
       status: this.status.value,
       created_at: this.created_at.value
