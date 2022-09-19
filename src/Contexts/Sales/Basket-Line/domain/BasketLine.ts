@@ -1,11 +1,10 @@
-import { BackofficeStockRecord } from '../../../../Backoffice/Partner/StockRecord/domain/BackofficeStockRecord';
-import { Product } from '../../../Catalogue/Product/domain/Product';
+import { BackofficeStockRecord } from '../../../Backoffice/Partner/StockRecord/domain/BackofficeStockRecord';
 import { Basket } from '../../Basket/domain/Basket';
 
 export class BasketLine {
     basket: Basket;
     stockrecord: BackofficeStockRecord;
-    product: Product;
+    // product: Product;
     quantity: number;
     price_currency: number;
     price_excl_tax: number;
