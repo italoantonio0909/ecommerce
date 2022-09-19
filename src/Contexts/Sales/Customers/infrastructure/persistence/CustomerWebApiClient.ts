@@ -8,12 +8,13 @@ export class CustomerWebApiClient implements CustomerRepository {
 
   async save(customer: Customer): Promise<any> {
 
-    const data = {
+    const user = {
       email: customer.email.value,
       displayName: customer.displayName.value,
       password: customer.password.value,
+      uid: customer.id.value
     }
 
-    return await auth.createUser(data);
+    return await auth.createUser(user);
   }
 }

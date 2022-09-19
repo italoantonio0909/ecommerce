@@ -10,9 +10,13 @@ export class SubscriberSaveController implements Controller {
     constructor(private commandBus: CommandBus) { }
 
     async run(req: Request, res: Response) {
+        const id = req.body.id;
+        console.log({ id })
         const email = req.body.email;
+        const status = req.body.status;
+        const created_at: Date = req.body.created_at;
 
-        const command = new SubscriberSaveCommand({ email });
+        const command = new SubscriberSaveCommand({ id, email, status, created_at });
 
         try {
             await this.commandBus.dispatch(command);

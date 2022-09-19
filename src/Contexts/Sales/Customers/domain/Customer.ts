@@ -7,10 +7,10 @@ import { CustomerPhoneNumber } from './CustomerPhoneNumber';
 import { CustomerPhotoURL } from './CustomerPhotoURL';
 import { AggregateRoot } from '../../../Shared/domain/AggregateRoot';
 import { CustomerSavedDomainEvent } from './CustomerSavedDomainEvent';
-import { CustomerUid } from './CustomerUid';
+import { CustomerId } from './CustomerId';
 
 export class Customer extends AggregateRoot {
-  readonly uid: CustomerUid;
+  readonly id: CustomerId;
   readonly email: CustomerEmail;
   readonly phoneNumber: CustomerPhoneNumber;
   readonly emailVerified: CustomerEmailVerified;
@@ -19,16 +19,17 @@ export class Customer extends AggregateRoot {
   readonly photoURL: CustomerPhotoURL;
   readonly disabled: CustomerDisabled;
 
-  constructor(email: CustomerEmail, password: CustomerPassword, displayName: CustomerDisplayName) {
+  constructor(id: CustomerId, email: CustomerEmail, password: CustomerPassword, displayName: CustomerDisplayName) {
     super();
+    this.id = id;
     this.email = email;
     this.password = password;
     this.displayName = displayName;
   }
 
-  static create(email: CustomerEmail, password: CustomerPassword, displayName: CustomerDisplayName): Customer {
+  static create(id: CustomerId, email: CustomerEmail, password: CustomerPassword, displayName: CustomerDisplayName): Customer {
 
-    const customer = new Customer(email, password, displayName);
+    const customer = new Customer(id, email, password, displayName);
 
     customer.record(new CustomerSavedDomainEvent({ email: email.value }));
 

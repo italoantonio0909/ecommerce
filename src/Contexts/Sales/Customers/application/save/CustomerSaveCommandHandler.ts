@@ -5,6 +5,7 @@ import { CustomerSave } from './CustomerSave';
 import { CustomerEmail } from '../../domain/CustomerEmail';
 import { CustomerPassword } from '../../domain/CustomerPassword';
 import { CustomerDisplayName } from '../../domain/CustomerDisplayName';
+import { CustomerId } from '../../domain/CustomerId';
 
 export class CustomerSaveCommandHandler implements CommandHandler<CustomerSaveCommand> {
 
@@ -16,6 +17,7 @@ export class CustomerSaveCommandHandler implements CommandHandler<CustomerSaveCo
 
     async handle(command: CustomerSaveCommand): Promise<void> {
         await this.customerSave.run(
+            new CustomerId(command.id),
             new CustomerEmail(command.email),
             new CustomerPassword(command.password),
             new CustomerDisplayName(command.displayName)
