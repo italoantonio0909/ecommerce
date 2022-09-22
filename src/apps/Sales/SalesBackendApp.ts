@@ -10,7 +10,7 @@ export class SalesBackendApp {
     server?: Server;
 
     async start() {
-        const port = parseInt(process.env.PORT) || 3000;
+        const port = process.env.PORT || '3000';
         this.server = new Server(port);
         await this.registerSubscribers();
         return this.server.listen();

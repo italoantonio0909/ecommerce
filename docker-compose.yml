@@ -13,7 +13,13 @@ services:
 
   backoffice-application:
     <<: *default-app
-    command: bash -c "npm run start"
+    command: bash -c "npm run start:backoffice"
+    ports:
+      - 5000:5000
+
+  sales-application:
+    <<: *default-app
+    command: bash -c "npm run start:sales"
     ports:
       - 3000:3000
 
