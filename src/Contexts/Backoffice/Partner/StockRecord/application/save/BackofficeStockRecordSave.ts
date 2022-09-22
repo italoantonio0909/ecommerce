@@ -1,7 +1,7 @@
 import { BackofficeStockRecord } from "../../domain/BackofficeStockRecord";
 import { BackofficeStockRecordRepository } from '../../domain/BackofficeStockRecordRepository';
 import { BackofficePartner } from '../../../Partner/domain/BackofficePartner';
-import { BackofficeProduct } from '../../../../Catalogue/Product/domain/BackofficeProduct';
+import { BackofficeProduct } from '../../../../Product/domain/BackofficeProduct';
 
 export class BackofficeStockRecordSave {
     constructor(

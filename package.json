@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --watch './**/*.ts' --exec 'ts-node' ./src/apps/Sales/start.ts"
+    "start:backoffice": "nodemon --watch './**/*.ts' --exec 'ts-node' ./src/apps/Backoffice/start.ts",
+    "start:sales": "nodemon --watch './**/*.ts' --exec 'ts-node' ./src/apps/Sales/start.ts"
   },
   "devDependencies": {
     "@types/convict": "^6.1.1",

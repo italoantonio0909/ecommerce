@@ -7,8 +7,8 @@ import errorHandler from 'errorhandler';
 import httpStatus from 'http-status';
 import cookieParser from 'cookie-parser';
 import * as http from 'http';
-import { registerRoutes } from './routes';
 import { Request, NextFunction, Response } from 'express';
+import { registerRoutes } from './routes/index';
 
 export class Server {
 
@@ -39,7 +39,7 @@ export class Server {
     async listen(): Promise<void> {
         return new Promise(resolve => {
             this.httpServer = this.express.listen(this.port, () => {
-                console.log(`🚀 Server sales listening on port ${this.port}`);
+                console.log(`🚀 Server backoffice listening on port ${this.port}`);
                 resolve();
             });
         });
