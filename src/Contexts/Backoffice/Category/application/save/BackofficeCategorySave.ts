@@ -1,6 +1,6 @@
-import { BackofficeCategoryRepository } from '../../domain/BackofficeCategoryRepository';
-import { BackofficeCategory } from '../../domain/BackofficeCategory';
-import { BackofficeCategoryAlreadyExists } from '../../domain/BackofficeCategoryAlreadyExists';
+import { BackofficeCategoryRepository } from '../../domain/CategoryRepository';
+import { BackofficeCategory } from '../../domain/Category';
+import { BackofficeCategoryAlreadyExists } from '../../domain/CategoryAlreadyExists';
 
 export class BackofficeCategorySave {
   constructor(

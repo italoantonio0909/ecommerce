@@ -8,7 +8,7 @@ import { BackofficeProductChildNotMustProductClass } from '../../domain/Backoffi
 import { BackofficeProductChildShouldNotHaveCategory } from '../../domain/BackofficeProductChildShouldNotHaveCategory';
 import { ProductStructure } from '../../domain/BackofficeProductStructure';
 import { BackofficeProductClass } from '../../../Product-Class/domain/ProductClass';
-import { BackofficeCategory } from '../../../Category/domain/BackofficeCategory';
+import { BackofficeCategory } from '../../../Category/domain/Category';
 
 export class BackofficeProductSave {
     constructor(

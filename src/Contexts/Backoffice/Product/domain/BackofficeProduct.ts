@@ -1,4 +1,4 @@
-import { BackofficeCategory } from '../../Category/domain/BackofficeCategory';
+import { BackofficeCategory } from '../../Category/domain/Category';
 import { BackofficeProductClass } from '../../Product-Class/domain/ProductClass';
 import { BackofficeProductTitle } from './BackofficeProductTitle';
 import { BackofficeProductDescription } from './BackofficeProductDescription';

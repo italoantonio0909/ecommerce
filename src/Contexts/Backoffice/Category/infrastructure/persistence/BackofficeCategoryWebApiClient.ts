@@ -1,5 +1,5 @@
-import { BackofficeCategory } from '../../domain/BackofficeCategory';
-import { BackofficeCategoryRepository } from '../../domain/BackofficeCategoryRepository';
+import { BackofficeCategory } from '../../domain/Category';
+import { BackofficeCategoryRepository } from '../../domain/CategoryRepository';
 import { Paginate } from '../../../../Shared/domain/Paginate';
 import { FirebaseRepository } from '../../../../Shared/infrastructure/persistence/firebase/FirebaseRepository';
 

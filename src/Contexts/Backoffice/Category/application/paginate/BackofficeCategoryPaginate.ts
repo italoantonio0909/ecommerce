@@ -1,5 +1,5 @@
-import { BackofficeCategoryRepository } from '../../domain/BackofficeCategoryRepository';
-import { BackofficeCategory } from '../../domain/BackofficeCategory';
+import { BackofficeCategoryRepository } from '../../domain/CategoryRepository';
+import { BackofficeCategory } from '../../domain/Category';
 import { Paginate } from '../../../../Shared/domain/Paginate';
 
 export class BackofficeCategoryPaginate {

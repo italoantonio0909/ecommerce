@@ -1,3 +1,3 @@
 import { StringValueObject } from '../../../Shared/domain/value-object/StringValueObject';
 
-export class BackofficeCategoryImage extends StringValueObject { }
+export class CategoryImage extends StringValueObject { }

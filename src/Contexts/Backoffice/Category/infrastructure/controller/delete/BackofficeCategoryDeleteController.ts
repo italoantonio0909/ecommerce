@@ -1,6 +1,6 @@
 import { Response, Request } from 'express';
 import { Controller } from '../../../../../../apps/Sales/controllers/Controller';
-import { BackofficeCategory } from "../../../domain/BackofficeCategory";
+import { BackofficeCategory } from "../../../domain/Category";
 import { BackofficeCategoryDelete } from '../../../application/delete/BackofficeCategoryDelete';
 
 export class BackofficeCategoryDeleteController implements Controller {

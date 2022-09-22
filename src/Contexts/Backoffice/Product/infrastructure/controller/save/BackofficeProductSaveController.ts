@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import { BackofficeProduct } from '../../../domain/BackofficeProduct';
 import { ProductStructure } from '../../../domain/BackofficeProductStructure';
 import { BackofficeProductClass } from '../../../../Product-Class/domain/ProductClass';
-import { BackofficeCategory } from '../../../../Category/domain/BackofficeCategory';
+import { BackofficeCategory } from '../../../../Category/domain/Category';
 import { BackofficeProductSave } from '../../../application/save/BackofficeProductSave';
 
 export class BackofficeProductSaveController implements Controller {
