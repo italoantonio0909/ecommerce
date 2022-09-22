@@ -1,5 +1,5 @@
 import { BackofficePartner } from "../../Partner/domain/BackofficePartner";
-import { BackofficeProduct } from '../../../Catalogue/Product/domain/BackofficeProduct';
+import { BackofficeProduct } from '../../../Product/domain/BackofficeProduct';
 import { BackofficeStockRecordPrice } from './BackofficeStockRecordPrice';
 import { BackofficeStockRecordCreatedAt } from './BackofficeStockRecordCreatedAt';
 import { BackofficeStockRecordModifiedAt } from './BackofficeStockRecordModifiedAt';
