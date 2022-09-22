@@ -32,28 +32,22 @@ export class Category extends AggregateRoot {
   }
 
   static create(
-    id: string,
-    name: string,
-    description: string,
-    is_public: boolean,
-    created_at: Date
+    id: CategoryId,
+    name: CategoryName,
+    description: CategoryDescription,
+    is_public: CategoryStatus,
+    created_at: CategoryCreatedAt
   ): Category {
 
-    return new Category(
-      new CategoryId(id),
-      new CategoryName(name),
-      new CategoryDescription(description),
-      new CategoryStatus(is_public),
-      new CategoryCreatedAt(created_at)
-    );
+    return new Category(id, name, description, is_public, created_at);
 
   }
 
   toPrimitives() {
     return {
+      id: this.id.value,
       name: this.name.value,
       description: this.description.value,
-      image: this.image.value,
       is_public: this.is_public.value,
       created_at: this.created_at.value
     }

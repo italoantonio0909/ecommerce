@@ -1,21 +1,21 @@
-import { BackofficeCategory } from '../../domain/Category';
-import { BackofficeCategoryRepository } from '../../domain/CategoryRepository';
 import { Paginate } from '../../../../Shared/domain/Paginate';
 import { FirebaseRepository } from '../../../../Shared/infrastructure/persistence/firebase/FirebaseRepository';
+import { Category } from '../../domain/Category';
+import { CategoryRepository } from '../../domain/CategoryRepository';
 
-export class BackofficeCategoryWebApiClient extends FirebaseRepository<BackofficeCategory> implements BackofficeCategoryRepository {
+export class BackofficeCategoryWebApiClient extends FirebaseRepository<Category> implements CategoryRepository {
 
-  async paginate(limitOfDocuments: number, page: number): Promise<Paginate<BackofficeCategory>> {
+  async paginate(limitOfDocuments: number, page: number): Promise<Paginate<Category>> {
 
     return await this.paginated(limitOfDocuments, page);
   }
 
-  async create(category: BackofficeCategory): Promise<void> {
+  async save(category: Category): Promise<void> {
 
     await this.persist(category);
   }
 
-  async search(name: string): Promise<BackofficeCategory> {
+  async search(name: string): Promise<Category> {
     const ref = this.collection().where("name", "==", name)
 
     const snapshot = await ref.get();
@@ -24,17 +24,7 @@ export class BackofficeCategoryWebApiClient extends FirebaseRepository<Backoffic
       return null;
     }
 
-    return snapshot.docs[0].data() as BackofficeCategory
-  }
-
-  async update(uid: string, category: Partial<BackofficeCategory>): Promise<void> {
-    const ref = this.collection().doc(uid);
-
-    await ref.update(category);
-  }
-
-  async delete(uid: string, category: Partial<BackofficeCategory>): Promise<void> {
-    await this.collection().doc(uid).update(category);
+    return snapshot.docs[0].data() as Category
   }
 
   moduleName(): string {
