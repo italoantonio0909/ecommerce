@@ -1,10 +1,10 @@
 import { Router, Request, Response } from 'express';
 import container from '../../dependency-injection';
-import { CategorySaveController } from '../controllers/CategorySaveControllers';
+import { CategorySaveController } from '../controllers/CategorySaveController';
 
 export const register = (router: Router) => {
 
-    const saveController = container.get<CategorySaveController>('Backoffice.Category.infrastructure.BackofficeCategorySaveController');
+    const saveController = container.get<CategorySaveController>('Backoffice.category.CategorySaveController');
     router.post("/api/backoffice/category", (req: Request, resp: Response) => saveController.run(req, resp));
 
     // const updateController = container.get('Backoffice.Catalogue.Category.infrastructure.BackofficeCategoryUpdateController');

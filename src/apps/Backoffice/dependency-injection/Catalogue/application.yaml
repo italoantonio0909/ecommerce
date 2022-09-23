@@ -1,0 +1,26 @@
+services:
+  Backoffice.category.CategoryRepository:
+    class: ../../../../Contexts/Backoffice/Category/infrastructure/persistence/CategoryWebApiClient
+    arguments: []
+
+  Backoffice.category.CategorySave:
+    class: ../../../../Contexts/Backoffice/Category/application/save/CategorySave
+    arguments: ['@Backoffice.category.CategoryRepository']
+
+  Backoffice.category.CategorySearch:
+    class: ../../../../Contexts/Backoffice/Category/application/search/CategorySearch
+    arguments: ['@Backoffice.category.CategoryRepository']
+
+  Backoffice.category.CategoryPaginate:
+    class: ../../../../Contexts/Backoffice/Category/application/paginate/CategoryPaginate
+    arguments: ['@Backoffice.category.CategoryRepository']
+
+  Backoffice.category.CategorySaveCommandHandler:
+    class: ../../../../Contexts/Backoffice/Category/application/save/CategorySaveCommandHandler
+    arguments: ['@Backoffice.category.CategorySave']
+    tags:
+      - { name: 'commandHandler' }
+
+  Backoffice.category.CategorySaveController:
+    class: ../../../../apps/Backoffice/Category/controllers/CategorySaveController
+    arguments: ['@Shared.CommandBus']

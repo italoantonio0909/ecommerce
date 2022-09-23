@@ -3,7 +3,7 @@ import { FirebaseRepository } from '../../../../Shared/infrastructure/persistenc
 import { Category } from '../../domain/Category';
 import { CategoryRepository } from '../../domain/CategoryRepository';
 
-export class BackofficeCategoryWebApiClient extends FirebaseRepository<Category> implements CategoryRepository {
+export class CategoryWebApiClient extends FirebaseRepository<Category> implements CategoryRepository {
 
   async paginate(limitOfDocuments: number, page: number): Promise<Paginate<Category>> {
 

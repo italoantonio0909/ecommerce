@@ -1,6 +1,5 @@
 import { Response, Request, CookieOptions } from 'express';
 import { Controller } from '../../controllers/Controller';
-import { AuthenticationSignIn } from '../../../../Contexts/Sales/Authentication/application/AuthenticationSignIn';
 import { CommandBus } from '../../../../Contexts/Shared/domain/CommandBus';
 import { AuthenticationSignInCommand } from '../../../../Contexts/Sales/Authentication/application/AuthenticationSignInCommand';
 
