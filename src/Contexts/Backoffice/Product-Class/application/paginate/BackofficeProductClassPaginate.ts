@@ -1,4 +1,4 @@
-import { BackofficeProductClassRepository } from '../../domain/BackofficeProductClassRepository';
+import { BackofficeProductClassRepository } from '../../domain/ProductClassRepository';
 import { BackofficeProductClass } from '../../domain/ProductClass';
 import { Paginate } from '../../../../Shared/domain/Paginate';
 
