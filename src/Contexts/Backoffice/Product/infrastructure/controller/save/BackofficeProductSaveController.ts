@@ -2,9 +2,9 @@ import { Controller } from '../../../../../../apps/Sales/controllers/Controller'
 import { Request, Response } from 'express';
 import { BackofficeProduct } from '../../../domain/BackofficeProduct';
 import { ProductStructure } from '../../../domain/BackofficeProductStructure';
-import { BackofficeProductClass } from '../../../../Product-Class/domain/ProductClass';
-import { BackofficeCategory } from '../../../../Category/domain/Category';
 import { BackofficeProductSave } from '../../../application/save/BackofficeProductSave';
+import { ProductClass } from '../../../../ProductClass/domain/ProductClass';
+import { Category } from '../../../../Category/domain/Category';
 
 export class BackofficeProductSaveController implements Controller {
     constructor(
@@ -20,8 +20,8 @@ export class BackofficeProductSaveController implements Controller {
             const description: string = req.body.description;
             const meta_title: string = req.body.meta_title;
             const meta_description: string = req.body.meta_description;
-            const product_class: BackofficeProductClass = req.body.product_class;
-            const categories: Array<BackofficeCategory> = req.body.categories;
+            const product_class: ProductClass = req.body.product_class;
+            const categories: Array<Category> = req.body.categories;
             const is_discountable: boolean = req.body.is_discountable;
             const rating: number = req.body.rating;
 

@@ -1,0 +1,21 @@
+services: 
+  Shared.eventBus.RabbitMqConfig:
+    factory:
+      class: ../../../../Contexts/Shared/infrastructure/EventBus/RabbitMq/RabbitMqConfigFactory
+      method: 'createConfig' 
+
+  Shared.Logger:
+    class: ../../../../Contexts/Shared/infrastructure/Logger/WinstonLogger
+    arguments: ['@Shared.eventBus.RabbitMqConfig']
+
+  Shared.EventBus:
+    class: ../../../../Contexts/Shared/infrastructure/EventBus/RabbitMq/RabbitMqEventBus
+    arguments: ['@Shared.eventBus.RabbitMqConfig', '@Shared.Logger']
+  
+  Shared.CommandHandlersInformation:
+    class: ../../../../Contexts/Shared/infrastructure/CommandBus/CommandHandlersInformation
+    arguments: ['!tagged commandHandler']
+
+  Shared.CommandBus:
+    class: ../../../../Contexts/Shared/infrastructure/CommandBus/InMemoryCommandBus
+    arguments: ['@Shared.CommandHandlersInformation']

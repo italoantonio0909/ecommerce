@@ -7,8 +7,8 @@ import { BackofficeProductChildShouldHaveParent } from '../../domain/BackofficeP
 import { BackofficeProductChildNotMustProductClass } from '../../domain/BackofficeProductChildNotMustProductClass';
 import { BackofficeProductChildShouldNotHaveCategory } from '../../domain/BackofficeProductChildShouldNotHaveCategory';
 import { ProductStructure } from '../../domain/BackofficeProductStructure';
-import { BackofficeProductClass } from '../../../Product-Class/domain/ProductClass';
-import { BackofficeCategory } from '../../../Category/domain/Category';
+import { ProductClass } from '../../../ProductClass/domain/ProductClass';
+import { Category } from '../../../Category/domain/Category';
 
 export class BackofficeProductSave {
     constructor(
@@ -97,8 +97,8 @@ export class BackofficeProductSave {
         description: string,
         meta_title: string,
         meta_description: string,
-        product_class: BackofficeProductClass,
-        categories: Array<BackofficeCategory>,
+        product_class: ProductClass,
+        categories: Array<Category>,
         is_discountable: boolean,
         rating: number,
     ): Promise<void> {
