@@ -1,5 +1,3 @@
-import { BackofficeCategory } from '../../Category/domain/Category';
-import { BackofficeProductClass } from '../../Product-Class/domain/ProductClass';
 import { BackofficeProductTitle } from './BackofficeProductTitle';
 import { BackofficeProductDescription } from './BackofficeProductDescription';
 import { BackofficeProductMetaTitle } from './BackofficeProductMetaTitle';
@@ -10,6 +8,8 @@ import { BackofficeProductCreatedAt } from './BackofficeProductCreatedAt';
 import { BackofficeProductModifiedAt } from './BackofficeProductModifiedAt';
 import { BackofficeProductIsDiscountable } from './BackofficeProductIsDiscountable';
 import { AggregateRoot } from '../../../Shared/domain/AggregateRoot';
+import { Category } from '../../Category/domain/Category';
+import { ProductClass } from '../../ProductClass/domain/ProductClass';
 
 export class BackofficeProduct extends AggregateRoot {
   readonly structure: BackofficeProductStructure;
@@ -19,8 +19,8 @@ export class BackofficeProduct extends AggregateRoot {
   readonly description: BackofficeProductDescription;
   readonly meta_title: BackofficeProductMetaTitle;
   readonly meta_description: BackofficeProductMetaDescription;
-  readonly product_class: BackofficeProductClass;
-  readonly categories: Array<BackofficeCategory>;
+  readonly product_class: ProductClass;
+  readonly categories: Array<Category>;
   readonly is_discountable: BackofficeProductIsDiscountable;
   readonly recommended_products: Array<BackofficeProduct>;
   readonly rating: BackofficeProductRating;
@@ -35,8 +35,8 @@ export class BackofficeProduct extends AggregateRoot {
     description: BackofficeProductDescription,
     meta_title: BackofficeProductMetaTitle,
     meta_description: BackofficeProductMetaDescription,
-    product_class: BackofficeProductClass,
-    categories: Array<BackofficeCategory>,
+    product_class: ProductClass,
+    categories: Array<Category>,
     is_discountable: BackofficeProductIsDiscountable,
     rating: BackofficeProductRating,
     created_at: BackofficeProductCreatedAt
@@ -64,8 +64,8 @@ export class BackofficeProduct extends AggregateRoot {
     description: string,
     meta_title: string,
     meta_description: string,
-    product_class: BackofficeProductClass,
-    categories: Array<BackofficeCategory>,
+    product_class: ProductClass,
+    categories: Array<Category>,
     is_discountable: boolean,
     rating: number,
     created_at: number

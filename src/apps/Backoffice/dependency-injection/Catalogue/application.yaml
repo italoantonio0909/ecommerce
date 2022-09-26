@@ -1,4 +1,7 @@
 services:
+
+  # CATEGORY SERVICES
+  
   Backoffice.category.CategoryRepository:
     class: ../../../../Contexts/Backoffice/Category/infrastructure/persistence/CategoryWebApiClient
     arguments: []
@@ -23,4 +26,28 @@ services:
 
   Backoffice.category.CategorySaveController:
     class: ../../../../apps/Backoffice/Category/controllers/CategorySaveController
+    arguments: ['@Shared.CommandBus']
+
+  # PRODUCT CLASS SERVICES
+
+  Backoffice.productClass.ProductClassRepository:
+    class: ../../../../Contexts/Backoffice/ProductClass/infrastructure/persistence/ProductClassWebApiClient
+    arguments: []
+
+  Backoffice.productClass.ProductClassSave:
+    class: ../../../../Contexts/Backoffice/ProductClass/application/save/ProductClassSave
+    arguments: ['@Backoffice.productClass.ProductClassRepository']
+
+  Backoffice.productClass.ProductClassPaginate:
+    class: ../../../../Contexts/Backoffice/ProductClass/application/paginate/ProductClassPaginate
+    arguments: ['@Backoffice.productClass.ProductClassRepository']
+
+  Backoffice.productClass.ProductClassSaveCommandHandler:
+    class: ../../../../Contexts/Backoffice/ProductClass/application/save/ProductClassSaveCommandHandler
+    arguments: ['@Backoffice.productClass.ProductClassSave']
+    tags:
+      - { name: 'commandHandler' }
+
+  Backoffice.productClass.ProductClassSaveController:
+    class: ../../../../apps/Backoffice/ProductClass/controllers/ProductClassSaveController
     arguments: ['@Shared.CommandBus']
