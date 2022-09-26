@@ -1,7 +1,7 @@
 import { Controller } from '../../../../../../apps/Sales/controllers/Controller';
 import { Request, Response } from 'express';
 import { BackofficeProductUpdate } from '../../../application/update/BackofficeProductUpdate';
-import { BackofficeProduct } from '../../../domain/BackofficeProduct';
+import { BackofficeProduct } from '../../../domain/Product';
 
 export class BackofficeProductUpdateController implements Controller {
     constructor(

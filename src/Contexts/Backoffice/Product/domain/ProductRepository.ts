@@ -1,7 +1,6 @@
-import { BackofficeProduct } from './BackofficeProduct';
 import { Paginate } from '../../../Shared/domain/Paginate';
 
-export interface BackofficeProductRepository {
+export interface ProductRepository {
   paginate(limit: number, startAfter: number): Promise<Paginate<BackofficeProduct>>
 
   create(product: BackofficeProduct): Promise<void>

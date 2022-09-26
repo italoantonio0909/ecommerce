@@ -1,5 +1,5 @@
-import { BackofficeProductRepository } from '../../domain/BackofficeProductRepository';
-import { BackofficeProduct } from '../../domain/BackofficeProduct';
+import { BackofficeProductRepository } from '../../domain/ProductRepository';
+import { BackofficeProduct } from '../../domain/Product';
 import { Paginate } from '../../../../Shared/domain/Paginate';
 ;
 

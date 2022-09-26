@@ -7,7 +7,7 @@ export enum ProductStructure {
     CHILD = "child",
 }
 
-export class BackofficeProductStructure extends EnumValueObject<ProductStructure> {
+export class ProductStructure extends EnumValueObject<ProductStructure> {
     constructor(value: ProductStructure) {
         super(value, Object.values(ProductStructure));
     }

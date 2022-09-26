@@ -2,7 +2,7 @@ import { Response, Request } from 'express';
 import { Controller } from '../../../../../../../apps/Sales/controllers/Controller';
 import { BackofficeStockRecord } from '../../../domain/BackofficeStockRecord';
 import { BackofficeStockRecordSave } from '../../../application/save/BackofficeStockRecordSave';
-import { BackofficeProduct } from '../../../../../Product/domain/BackofficeProduct';
+import { BackofficeProduct } from '../../../../../Product/domain/Product';
 import { BackofficePartner } from '../../../../Partner/domain/BackofficePartner';
 
 export class BackofficeStockRecordSaveController implements Controller {

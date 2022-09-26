@@ -1,7 +1,7 @@
 import { Controller } from '../../../../../../apps/Sales/controllers/Controller';
 import { Request, Response } from 'express';
-import { BackofficeProduct } from '../../../domain/BackofficeProduct';
-import { ProductStructure } from '../../../domain/BackofficeProductStructure';
+import { BackofficeProduct } from '../../../domain/Product';
+import { ProductStructure } from '../../../domain/ProductStructure';
 import { BackofficeProductSave } from '../../../application/save/BackofficeProductSave';
 import { ProductClass } from '../../../../ProductClass/domain/ProductClass';
 import { Category } from '../../../../Category/domain/Category';

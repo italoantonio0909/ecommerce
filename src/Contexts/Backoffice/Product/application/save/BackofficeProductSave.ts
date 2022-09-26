@@ -1,12 +1,12 @@
-import { BackofficeProduct } from '../../domain/BackofficeProduct';
-import { BackofficeProductRepository } from '../../domain/BackofficeProductRepository';
-import { BackofficeProductTitleRequired } from '../../domain/BackofficeProductTitleRequired';
-import { BackofficeProductProductClassRequired } from '../../domain/BackofficeProductProductClassRequired';
-import { BackofficeProductShouldNotHaveParent } from '../../domain/BackofficeProductShouldNotHaveParent';
-import { BackofficeProductChildShouldHaveParent } from '../../domain/BackofficeProductChildShouldHaveParent';
-import { BackofficeProductChildNotMustProductClass } from '../../domain/BackofficeProductChildNotMustProductClass';
-import { BackofficeProductChildShouldNotHaveCategory } from '../../domain/BackofficeProductChildShouldNotHaveCategory';
-import { ProductStructure } from '../../domain/BackofficeProductStructure';
+import { BackofficeProduct } from '../../domain/Product';
+import { BackofficeProductRepository } from '../../domain/ProductRepository';
+import { BackofficeProductTitleRequired } from '../../domain/ProductTitleRequired';
+import { BackofficeProductProductClassRequired } from '../../domain/ProductProductClassRequired';
+import { BackofficeProductShouldNotHaveParent } from '../../domain/ProductShouldNotHaveParent';
+import { BackofficeProductChildShouldHaveParent } from '../../domain/ProductChildShouldHaveParent';
+import { BackofficeProductChildNotMustProductClass } from '../../domain/ProductChildNotMustProductClass';
+import { BackofficeProductChildShouldNotHaveCategory } from '../../domain/ProductChildShouldNotHaveCategory';
+import { ProductStructure } from '../../domain/ProductStructure';
 import { ProductClass } from '../../../ProductClass/domain/ProductClass';
 import { Category } from '../../../Category/domain/Category';
 
