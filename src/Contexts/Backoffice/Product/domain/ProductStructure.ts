@@ -1,18 +1,18 @@
 import { InvalidArgumentError } from '../../../Shared/domain/value-object/InvalidArgumentError';
 import { EnumValueObject } from '../../../Shared/domain/value-object/EnumValueObject';
 
-export enum ProductStructure {
+export enum Structure {
     STANDALONE = "standalone",
     PARENT = "parent",
     CHILD = "child",
 }
 
-export class ProductStructure extends EnumValueObject<ProductStructure> {
-    constructor(value: ProductStructure) {
-        super(value, Object.values(ProductStructure));
+export class ProductStructure extends EnumValueObject<Structure> {
+    constructor(value: Structure) {
+        super(value, Object.values(Structure));
     }
 
-    protected throwErrorForInvalidValue(value: ProductStructure): void {
-        throw new InvalidArgumentError(`${value} is not a structure valid product`);
+    protected throwErrorForInvalidValue(value: Structure): void {
+        throw new InvalidArgumentError(`${value} is not a structure valid product.`);
     }
 }

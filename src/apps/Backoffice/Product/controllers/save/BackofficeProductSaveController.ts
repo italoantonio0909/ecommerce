@@ -1,10 +1,10 @@
-import { Controller } from '../../../../../../apps/Sales/controllers/Controller';
+import { Controller } from '../../../../Sales/controllers/Controller';
 import { Request, Response } from 'express';
-import { BackofficeProduct } from '../../../domain/Product';
-import { ProductStructure } from '../../../domain/ProductStructure';
-import { BackofficeProductSave } from '../../../application/save/BackofficeProductSave';
-import { ProductClass } from '../../../../ProductClass/domain/ProductClass';
-import { Category } from '../../../../Category/domain/Category';
+import { BackofficeProduct } from '../../../../../Contexts/Backoffice/Product/domain/Product';
+import { ProductStructure } from '../../../../../Contexts/Backoffice/Product/domain/ProductStructure';
+import { BackofficeProductSave } from '../../../../../Contexts/Backoffice/Product/application/save/ProductSave';
+import { ProductClass } from '../../../../../Contexts/Backoffice/ProductClass/domain/ProductClass';
+import { Category } from '../../../../../Contexts/Backoffice/Category/domain/Category';
 
 export class BackofficeProductSaveController implements Controller {
     constructor(

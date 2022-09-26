@@ -1,6 +1,6 @@
-import { Controller } from '../../../../../../apps/Sales/controllers/Controller';
+import { Controller } from '../../../../Sales/controllers/Controller';
 import { Request, Response } from 'express';
-import { BackofficeProductRetrieveDetail } from '../../../application/retrieveDetail/BackofficeProductRetrieveDetail';
+import { BackofficeProductRetrieveDetail } from '../../../../../Contexts/Backoffice/Product/application/retrieveDetail/ProductRetrieveDetail';
 
 export class BackofficeProductRetrieveDetailController implements Controller {
     constructor(

@@ -1,57 +1,65 @@
-import { BackofficeProduct } from '../../domain/Product';
-import { BackofficeProductRepository } from '../../domain/ProductRepository';
-import { BackofficeProductTitleRequired } from '../../domain/ProductTitleRequired';
-import { BackofficeProductProductClassRequired } from '../../domain/ProductProductClassRequired';
-import { BackofficeProductShouldNotHaveParent } from '../../domain/ProductShouldNotHaveParent';
-import { BackofficeProductChildShouldHaveParent } from '../../domain/ProductChildShouldHaveParent';
-import { BackofficeProductChildNotMustProductClass } from '../../domain/ProductChildNotMustProductClass';
-import { BackofficeProductChildShouldNotHaveCategory } from '../../domain/ProductChildShouldNotHaveCategory';
 import { ProductStructure } from '../../domain/ProductStructure';
-import { ProductClass } from '../../../ProductClass/domain/ProductClass';
-import { Category } from '../../../Category/domain/Category';
+import { ProductRepository } from '../../domain/ProductRepository';
+import { Product } from '../../domain/Product';
+import { ProductTitleRequired } from '../../domain/ProductTitleRequired';
+import { ProductProductClassRequired } from '../../domain/ProductProductClassRequired';
+import { ProductShouldNotHaveParent } from '../../domain/ProductShouldNotHaveParent';
+import { ProductChildShouldHaveParent } from '../../domain/ProductChildShouldHaveParent';
+import { ProductChildNotMustProductClass } from '../../domain/ProductChildNotMustProductClass';
+import { ProductChildShouldNotHaveCategory } from '../../domain/ProductChildShouldNotHaveCategory';
+import { ProductId } from '../../domain/ProductId';
+import { ProductIsPublic } from '../../domain/ProductIsPublic';
+import { ProductTitle } from '../../domain/ProductTitle';
+import { ProductDescription } from '../../domain/ProductDescription';
+import { ProductMetaTitle } from '../../domain/ProductMetaTitle';
+import { ProductMetaDescription } from '../../domain/ProductMetaDescription';
+import { ProductClassId } from '../../../ProductClass/domain/ProductClassId';
+import { CategoryId } from '../../../Category/domain/CategoryId';
+import { ProductIsDiscountable } from '../../domain/ProductIsDiscountable';
+import { ProductRating } from '../../domain/ProductRating';
+import { ProductCreatedAt } from '../../domain/ProductCreatedAt';
+import { EventBus } from '../../../../Shared/domain/EventBus';
 
-export class BackofficeProductSave {
-    constructor(
-        private readonly repository: BackofficeProductRepository
-    ) { }
+export class ProductSave {
+    constructor(private repository: ProductRepository, private eventBus: EventBus) { }
 
-    async productCleanStandlone(product: BackofficeProduct) {
+    async productCleanStandlone(product: Product) {
         const { title, product_class, parent } = product;
         if (!title) {
-            throw new BackofficeProductTitleRequired()
+            throw new ProductTitleRequired()
         }
         if (!product_class) {
-            throw new BackofficeProductProductClassRequired()
+            throw new ProductProductClassRequired()
         }
         if (parent) {
-            throw new BackofficeProductShouldNotHaveParent()
+            throw new ProductShouldNotHaveParent()
         }
     }
 
-    async productCleanParent(product: BackofficeProduct) {
+    async productCleanParent(product: Product) {
         await this.productCleanStandlone(product)
     }
 
-    async productCleanChild(product: BackofficeProduct) {
+    async productCleanChild(product: Product) {
         const { parent, product_class } = product;
         if (!parent) {
-            throw new BackofficeProductChildShouldHaveParent();
+            throw new ProductChildShouldHaveParent();
         }
 
         if (product_class) {
-            throw new BackofficeProductChildNotMustProductClass();
+            throw new ProductChildNotMustProductClass();
         }
 
-        if (parent && parent.structure.value !== "parent") {
-            throw new BackofficeProductChildShouldHaveParent();
-        }
+        //  if (parent && parent. !== "parent") {
+        //     throw new ProductChildShouldHaveParent();
+        // }
 
         if (product.categories && product.categories.length !== 0) {
-            throw new BackofficeProductChildShouldNotHaveCategory();
+            throw new ProductChildShouldNotHaveCategory();
         }
     }
 
-    async productValidate(product: BackofficeProduct) {
+    async productValidate(product: Product) {
         /**
         Validate a product. Those are the rules:
         +---------------+-------------+--------------+--------------+
@@ -90,23 +98,25 @@ export class BackofficeProductSave {
     }
 
     async create(
+        id: ProductId,
         structure: ProductStructure,
-        is_public: boolean,
-        parent: BackofficeProduct,
-        title: string,
-        description: string,
-        meta_title: string,
-        meta_description: string,
-        product_class: ProductClass,
-        categories: Array<Category>,
-        is_discountable: boolean,
-        rating: number,
+        is_public: ProductIsPublic,
+        parent: ProductId,
+        title: ProductTitle,
+        description: ProductDescription,
+        meta_title: ProductMetaTitle,
+        meta_description: ProductMetaDescription,
+        product_class: ProductClassId,
+        categories: Array<CategoryId>,
+        is_discountable: ProductIsDiscountable,
+        rating: ProductRating,
+        created_at: ProductCreatedAt
     ): Promise<void> {
 
         // await this.productValidate(product);
 
-        const created_at = new Date().getTime();
-        const data = BackofficeProduct.create(
+        const product = Product.create(
+            id,
             structure,
             is_public,
             parent,
@@ -121,6 +131,8 @@ export class BackofficeProductSave {
             created_at
         );
 
-        return await this.repository.create(data)
+        await this.repository.save(product)
+
+        await this.eventBus.publish(product.pullDomainEvents());
     }
 }

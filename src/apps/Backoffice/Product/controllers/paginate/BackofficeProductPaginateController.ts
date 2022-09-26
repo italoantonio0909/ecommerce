@@ -1,6 +1,6 @@
-import { Controller } from '../../../../../../apps/Sales/controllers/Controller';
+import { Controller } from '../../../../Sales/controllers/Controller';
 import { Request, Response } from 'express';
-import { BackofficeProductsPaginate } from '../../../application/paginate/BackofficeProductsPaginate';
+import { BackofficeProductsPaginate } from '../../../../../Contexts/Backoffice/Product/application/paginate/ProductPaginate';
 
 export class BackofficeProductPaginateController implements Controller {
     constructor(

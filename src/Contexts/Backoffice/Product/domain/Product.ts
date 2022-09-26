@@ -13,6 +13,7 @@ import { ProductMetaDescription } from './ProductMetaDescription';
 import { ProductCreatedAt } from './ProductCreatedAt';
 import { ProductRating } from './ProductRating';
 import { ProductModifiedAt } from './ProductModifiedAt';
+import { ProductSavedDomainEvent } from './ProductSavedDomainEvent';
 
 export class Product extends AggregateRoot {
   readonly id: ProductId;
@@ -77,7 +78,7 @@ export class Product extends AggregateRoot {
     rating: ProductRating,
     created_at: ProductCreatedAt
   ): Product {
-    return new Product(
+    const product = new Product(
       id,
       structure,
       is_public,
@@ -91,8 +92,13 @@ export class Product extends AggregateRoot {
       is_discountable,
       rating,
       created_at
-    )
+    );
+
+    product.record(new ProductSavedDomainEvent({ id: id.value }));
+
+    return product;
   }
+
 
   toPrimitives() {
     return {
