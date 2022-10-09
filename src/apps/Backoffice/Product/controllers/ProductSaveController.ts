@@ -1,15 +1,12 @@
-import { Controller } from '../../../../Sales/controllers/Controller';
+import { Controller } from '../../../Sales/controllers/Controller';
 import { Request, Response } from 'express';
-import { BackofficeProduct } from '../../../../../Contexts/Backoffice/Product/domain/Product';
-import { ProductStructure } from '../../../../../Contexts/Backoffice/Product/domain/ProductStructure';
-import { BackofficeProductSave } from '../../../../../Contexts/Backoffice/Product/application/save/ProductSave';
-import { ProductClass } from '../../../../../Contexts/Backoffice/ProductClass/domain/ProductClass';
-import { Category } from '../../../../../Contexts/Backoffice/Category/domain/Category';
+import { ProductStructure } from '../../../../Contexts/Backoffice/Product/domain/ProductStructure';
+import { ProductClass } from '../../../../Contexts/Backoffice/ProductClass/domain/ProductClass';
+import { Category } from '../../../../Contexts/Backoffice/Category/domain/Category';
+import { CommandBus } from '../../../../Contexts/Shared/domain/CommandBus';
 
 export class BackofficeProductSaveController implements Controller {
-    constructor(
-        private readonly product: BackofficeProductSave
-    ) { }
+    constructor(private commandBus: CommandBus) { }
 
     async run(req: Request, res: Response) {
         try {

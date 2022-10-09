@@ -1,11 +1,9 @@
-import { Controller } from '../../../../Sales/controllers/Controller';
+import { Controller } from '../../../Sales/controllers/Controller';
 import { Request, Response } from 'express';
-import { BackofficeProductsPaginate } from '../../../../../Contexts/Backoffice/Product/application/paginate/ProductPaginate';
+import { CommandBus } from '../../../../Contexts/Shared/domain/CommandBus';
 
 export class BackofficeProductPaginateController implements Controller {
-    constructor(
-        private readonly product: BackofficeProductsPaginate
-    ) { }
+    constructor(private commandBus: CommandBus) { }
 
     async run(req: Request, res: Response) {
         try {

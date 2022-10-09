@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import container from '../../../../../../apps/backend/dependency-injection';
+import container from '../../dependency-injection';
 
 export const register = (router: Router) => {
 
