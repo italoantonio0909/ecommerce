@@ -25,7 +25,7 @@ services:
       - { name: 'commandHandler' }
 
   Backoffice.category.CategorySaveController:
-    class: ../../../../apps/Backoffice/Category/controllers/CategorySaveController
+    class: ../../../../apps/Backoffice/controllers/CategorySaveController
     arguments: ['@Shared.CommandBus']
 
   # PRODUCT CLASS SERVICES
@@ -49,5 +49,5 @@ services:
       - { name: 'commandHandler' }
 
   Backoffice.productClass.ProductClassSaveController:
-    class: ../../../../apps/Backoffice/ProductClass/controllers/ProductClassSaveController
+    class: ../../../../apps/Backoffice/controllers/ProductClassSaveController
     arguments: ['@Shared.CommandBus']

@@ -1,9 +1,9 @@
 import httpStatus from 'http-status';
 import { Response, Request } from 'express';
-import { CommandBus } from '../../../../Contexts/Shared/domain/CommandBus';
-import { Controller } from '../../controllers/Controller';
-import { CategorySaveCommand } from '../../../../Contexts/Backoffice/Category/application/save/CategorySaveCommand';
-import { CategoryAlreadyExists } from '../../../../Contexts/Backoffice/Category/domain/CategoryAlreadyExists';
+import { CommandBus } from '../../../Contexts/Shared/domain/CommandBus';
+import { Controller } from './Controller';
+import { CategorySaveCommand } from '../../../Contexts/Backoffice/Category/application/save/CategorySaveCommand';
+import { CategoryAlreadyExists } from '../../../Contexts/Backoffice/Category/domain/CategoryAlreadyExists';
 
 export class CategorySaveController implements Controller {
 
