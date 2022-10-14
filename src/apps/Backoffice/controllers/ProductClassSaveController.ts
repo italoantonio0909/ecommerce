@@ -1,8 +1,8 @@
-import { Controller } from '../../../Sales/controllers/Controller';
+import { Controller } from '../../Sales/controllers/Controller';
 import { Request, Response } from 'express';
-import { CommandBus } from '../../../../Contexts/Shared/domain/CommandBus';
+import { CommandBus } from '../../../Contexts/Shared/domain/CommandBus';
 import httpStatus from 'http-status';
-import { ProductClassSaveCommand } from '../../../../Contexts/Backoffice/ProductClass/application/save/ProductClassSaveCommand';
+import { ProductClassSaveCommand } from '../../../Contexts/Backoffice/ProductClass/application/save/ProductClassSaveCommand';
 
 export class ProductClassSaveController implements Controller {
     constructor(private commandBus: CommandBus) { }
