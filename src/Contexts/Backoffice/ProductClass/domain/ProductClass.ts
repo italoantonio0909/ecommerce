@@ -45,7 +45,7 @@ export class ProductClass extends AggregateRoot {
       name: this.name.value,
       required_shipping: this.required_shipping.value,
       track_stock: this.track_stock.value,
-      created_at: this.created_at
+      created_at: this.created_at.value
     }
   }
 }

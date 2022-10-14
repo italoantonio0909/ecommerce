@@ -8,7 +8,7 @@ services:
     arguments: ['@Sales.authentication.AuthenticationRepository']
 
   Sales.authentication.AuthenticationSignInController:
-    class: ../../../../apps/Sales/Authentication/controllers/AuthenticationSignInController
+    class: ../../../../apps/Sales/controllers/AuthenticationSignInController
     arguments: ['@Shared.CommandBus']
 
   Sales.authentication.AuthenticationSignInCommandHandler:
@@ -31,7 +31,7 @@ services:
       - { name: 'commandHandler' }
 
   Sales.customers.CustomerSaveController:
-    class: ../../../../apps/Sales/Customers/controllers/CustomerSaveController
+    class: ../../../../apps/Sales/controllers/CustomerSaveController
     arguments: ['@Shared.CommandBus']
 
   # Subscribers  # Subscribers  # Subscribers
@@ -50,7 +50,7 @@ services:
       - { name: 'commandHandler' }
 
   Sales.subscribers.SubscriberSaveController:
-    class: ../../../../apps/Sales/Subscribers/controllers/SubscriberSaveController
+    class: ../../../../apps/Sales/controllers/SubscriberSaveController
     arguments: ['@Shared.CommandBus']
 
   # Blog   #Blog  # Blog
