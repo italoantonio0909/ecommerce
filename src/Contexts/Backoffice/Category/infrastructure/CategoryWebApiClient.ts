@@ -1,7 +1,7 @@
-import { Paginate } from '../../../Shared/domain/Paginate';
-import { FirebaseRepository } from '../../../../Shared/infrastructure/persistence/FirebaseRepository';
-import { Category } from '../../domain/Category';
-import { CategoryRepository } from '../../domain/CategoryRepository';
+import { Paginate } from '../../Shared/domain/Paginate';
+import { FirebaseRepository } from '../../Shared/infrastructure/persistence/firebase/FirebaseRepository';
+import { Category } from '../domain/Category';
+import { CategoryRepository } from '../domain/CategoryRepository';
 
 export class CategoryWebApiClient extends FirebaseRepository<Category> implements CategoryRepository {
 

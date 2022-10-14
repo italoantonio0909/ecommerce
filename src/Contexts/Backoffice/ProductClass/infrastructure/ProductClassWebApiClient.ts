@@ -1,7 +1,7 @@
-import { Paginate } from '../../../Shared/domain/Paginate';
-import { FirebaseRepository } from '../../../../Shared/infrastructure/persistence/FirebaseRepository';
-import { ProductClass } from '../../domain/ProductClass';
-import { ProductClassRepository } from '../../domain/ProductClassRepository';
+import { Paginate } from '../../Shared/domain/Paginate';
+import { FirebaseRepository } from '../../Shared/infrastructure/persistence/firebase/FirebaseRepository';
+import { ProductClass } from '../domain/ProductClass';
+import { ProductClassRepository } from '../domain/ProductClassRepository';
 
 
 export class ProductClassWebApiClient extends FirebaseRepository<ProductClass> implements ProductClassRepository {
