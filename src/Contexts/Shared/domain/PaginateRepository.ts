@@ -1,4 +1,4 @@
-import { Paginate } from './Paginate';
+import { Paginate } from '../../Backoffice/Shared/domain/Paginate';
 export interface PaginateRepository {
     paginateSimpleQuery<T>(limit: number): Promise<Array<T>>;
 

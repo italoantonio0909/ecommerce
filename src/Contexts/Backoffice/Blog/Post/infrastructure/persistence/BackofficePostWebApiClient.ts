@@ -1,7 +1,7 @@
 import { BackofficePost } from '../../domain/BackofficePost';
 import { BackofficePostRepository } from '../../domain/BackofficePostRepository';
-import { Paginate } from '../../../../../Shared/domain/Paginate';
-import { FirebaseRepository } from '../../../../../Shared/infrastructure/persistence/firebase/FirebaseRepository';
+import { Paginate } from '../../../../Shared/domain/Paginate';
+import { FirebaseRepository } from '../../../../../Shared/infrastructure/persistence/FirebaseRepository';
 
 export class BackofficePostWebApiClient extends FirebaseRepository<BackofficePost> implements BackofficePostRepository {
 

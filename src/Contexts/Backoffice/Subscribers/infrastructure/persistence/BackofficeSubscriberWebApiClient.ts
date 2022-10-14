@@ -1,7 +1,7 @@
 import { BackofficeSubscriber } from '../../domain/BackofficeSubscriber';
 import { BackofficeSubscribersRepository } from '../../domain/BackofficeSubscribersRepository';
-import { Paginate } from '../../../../Shared/domain/Paginate';
-import { FirebaseRepository } from '../../../../Shared/infrastructure/persistence/firebase/FirebaseRepository';
+import { Paginate } from '../../../Shared/domain/Paginate';
+import { FirebaseRepository } from '../../../../Shared/infrastructure/persistence/FirebaseRepository';
 
 export class BackofficeSubscriberWebApiClient extends FirebaseRepository<BackofficeSubscriber> implements BackofficeSubscribersRepository {
 

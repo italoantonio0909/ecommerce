@@ -1,6 +1,6 @@
-import { Subscriber } from '../../domain/Subscriber';
-import { SubscriberRepository } from '../../domain/SubscribersRepository'
-import { FirebaseRepository } from '../../../../Shared/infrastructure/persistence/firebase/FirebaseRepository';
+import { Subscriber } from '../domain/Subscriber';
+import { SubscriberRepository } from '../domain/SubscribersRepository'
+import { FirebaseRepository } from '../../../Shared/infrastructure/persistence/FirebaseRepository';
 
 export class SubscriberWebApiClient extends FirebaseRepository<Subscriber> implements SubscriberRepository {
 
@@ -23,9 +23,5 @@ export class SubscriberWebApiClient extends FirebaseRepository<Subscriber> imple
 
   protected moduleName(): string {
     return 'subscribers'
-  }
-
-  orderBy() {
-    return 'created_at'
   }
 }

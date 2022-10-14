@@ -1,6 +1,6 @@
-import { AggregateRoot } from '../../../domain/AggregateRoot';
+import firestore from '../../../../../../apps/Sales/database';
+import { AggregateRoot } from '../../../../../Shared/domain/AggregateRoot';
 import { Paginate } from '../../../domain/Paginate';
-import firestore from '../../../../../apps/Sales/database';
 
 export abstract class FirebaseRepository<T extends AggregateRoot>{
     protected abstract moduleName(): string;

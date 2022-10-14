@@ -1,4 +1,4 @@
-import { Paginate } from '../../../Shared/domain/Paginate';
+import { Paginate } from '../../Shared/domain/Paginate';
 import { Product } from './Product';
 
 export interface ProductRepository {

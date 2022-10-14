@@ -1,6 +1,6 @@
 import { BackofficePost } from '../../domain/BackofficePost';
 import { BackofficePostRepository } from '../../domain/BackofficePostRepository';
-import { Paginate } from '../../../../../Shared/domain/Paginate';
+import { Paginate } from '../../../../Shared/domain/Paginate';
 
 export class BackofficePostPaginate {
   private repository: BackofficePostRepository;

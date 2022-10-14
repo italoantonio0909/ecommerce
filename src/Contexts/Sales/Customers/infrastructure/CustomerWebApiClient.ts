@@ -1,6 +1,6 @@
-import { auth } from '../../../../../apps/Sales/database';
-import { Customer } from '../../domain/Customer';
-import { CustomerRepository } from '../../domain/CustomerRepository'
+import { auth } from '../../../../apps/Sales/database';
+import { Customer } from '../domain/Customer';
+import { CustomerRepository } from '../domain/CustomerRepository'
 
 export class CustomerWebApiClient implements CustomerRepository {
 

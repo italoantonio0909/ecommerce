@@ -1,5 +1,5 @@
 import { BackofficePost } from "./BackofficePost";
-import { Paginate } from '../../../../Shared/domain/Paginate';
+import { Paginate } from '../../../Shared/domain/Paginate';
 
 export interface BackofficePostRepository {
     save(post: BackofficePost): Promise<void>;

@@ -16,6 +16,7 @@ import { ProductModifiedAt } from './ProductModifiedAt';
 import { ProductSavedDomainEvent } from './ProductSavedDomainEvent';
 
 export class Product extends AggregateRoot {
+
   readonly id: ProductId;
   readonly structure: ProductStructure;
   readonly is_public: ProductIsPublic;

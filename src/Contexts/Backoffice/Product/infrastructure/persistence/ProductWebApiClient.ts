@@ -1,5 +1,5 @@
-import { Paginate } from '../../../../Shared/domain/Paginate';
-import { FirebaseRepository } from '../../../../Shared/infrastructure/persistence/firebase/FirebaseRepository';
+import { Paginate } from '../../../Shared/domain/Paginate';
+import { FirebaseRepository } from '../../../../Shared/infrastructure/persistence/FirebaseRepository';
 import { Product } from '../../domain/Product';
 import { ProductRepository } from '../../domain/ProductRepository';
 

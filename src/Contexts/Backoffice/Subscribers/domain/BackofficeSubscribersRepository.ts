@@ -1,5 +1,5 @@
 import { BackofficeSubscriber } from './BackofficeSubscriber';
-import { Paginate } from '../../../Shared/domain/Paginate';
+import { Paginate } from '../../Shared/domain/Paginate';
 
 export interface BackofficeSubscribersRepository {
   paginate(limitOfDocuments: number, page: number): Promise<Paginate<BackofficeSubscriber>>;

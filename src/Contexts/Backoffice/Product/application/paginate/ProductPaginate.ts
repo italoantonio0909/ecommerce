@@ -1,4 +1,4 @@
-import { Paginate } from '../../../../Shared/domain/Paginate';
+import { Paginate } from '../../../Shared/domain/Paginate';
 import { ProductRepository } from '../../domain/ProductRepository';
 import { Product } from '../../domain/Product';
 

@@ -6,7 +6,6 @@ import { PartnerName } from './PartnerName';
 import { PartnerUid } from './PartnerUid';
 
 export class Partner extends AggregateRoot {
-
     readonly id: PartnerUid;
     readonly code: PartnerCode;
     readonly name: PartnerName;
