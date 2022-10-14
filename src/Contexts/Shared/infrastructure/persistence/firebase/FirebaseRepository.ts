@@ -14,8 +14,8 @@ export abstract class FirebaseRepository<T extends AggregateRoot>{
     protected async persist(aggregateRoot: T) {
         const collection = this.collection().doc(aggregateRoot.toPrimitives().id);
         const document = { ...aggregateRoot.toPrimitives() };
-
         return await collection.set(document);
+
     }
 
     protected async paginatePaginateQuery<T>(limit: number, startAfter: number): Promise<Array<T>> {

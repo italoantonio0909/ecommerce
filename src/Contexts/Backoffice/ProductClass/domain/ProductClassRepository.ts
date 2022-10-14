@@ -1,8 +1,8 @@
 import { Paginate } from '../../../Shared/domain/Paginate';
-import { BackofficeProductClass } from './ProductClass';
+import { ProductClass } from './ProductClass';
 
 export interface ProductClassRepository {
-    save(productClass: BackofficeProductClass): Promise<void>;
+    save(productClass: ProductClass): Promise<void>;
 
-    paginate(limitOfDocuments: number, page: number): Promise<Paginate<BackofficeProductClass>>;
+    paginate(limitOfDocuments: number, page: number): Promise<Paginate<ProductClass>>;
 }

@@ -1,4 +1,4 @@
-import { BackofficeStockRecord } from '../../../Backoffice/Partner/StockRecord/domain/BackofficeStockRecord';
+import { BackofficeStockRecord } from '../../../Backoffice/StockRecord/domain/BackofficeStockRecord';
 import { Basket } from '../../Basket/domain/Basket';
 
 export class BasketLine {
