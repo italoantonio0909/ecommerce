@@ -1,5 +1,5 @@
 import { ProductRecord } from './ProductRecord';
-import { Paginate } from '../../../Shared/domain/Paginate';
+import { Paginate } from '../../../Backoffice/Shared/domain/Paginate';
 
 export interface ProductRecordRepository {
     productRecordCreate(productRecord: ProductRecordRepository): Promise<Paginate<ProductRecord>>;

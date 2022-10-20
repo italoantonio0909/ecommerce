@@ -17,7 +17,7 @@ services:
 
   # Customers  # Customers  # Customers
   Sales.customers.CustomerRepository:
-    class: ../../../../Contexts/Sales/Customers/infrastructure/persistence/CustomerWebApiClient
+    class: ../../../../Contexts/Sales/Customers/infrastructure/CustomerWebApiClient
     arguments: []
 
   Sales.customers.CustomerSave:
@@ -36,7 +36,7 @@ services:
 
   # Subscribers  # Subscribers  # Subscribers
   Sales.subscribers.SubscriberRepository:
-    class: ../../../../Contexts/Sales/Subscribers/infrastructure/persistence/SubscriberWebApiClient
+    class: ../../../../Contexts/Sales/Subscribers/infrastructure/SubscriberWebApiClient
     arguments: []
 
   Sales.subscribers.SubscriberSave:

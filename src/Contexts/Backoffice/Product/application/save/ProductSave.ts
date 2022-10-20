@@ -20,6 +20,25 @@ import { ProductRating } from '../../domain/ProductRating';
 import { ProductCreatedAt } from '../../domain/ProductCreatedAt';
 import { EventBus } from '../../../../Shared/domain/EventBus';
 
+<<<<<<< HEAD
+type Params = {
+    id: ProductId;
+    structure: ProductStructure;
+    is_public: ProductIsPublic;
+    parent: ProductId;
+    title: ProductTitle;
+    description: ProductDescription;
+    meta_title: ProductMetaTitle;
+    meta_description: ProductMetaDescription,
+    product_class: ProductClassId;
+    categories: Array<CategoryId>;
+    is_discountable: ProductIsDiscountable;
+    rating: ProductRating;
+    created_at: ProductCreatedAt;
+}
+
+=======
+>>>>>>> 1acc7971300af8f299b55c1b41ec6b9c68a71ff3
 export class ProductSave {
     constructor(private repository: ProductRepository, private eventBus: EventBus) { }
 
@@ -97,6 +116,22 @@ export class ProductSave {
         }
     }
 
+<<<<<<< HEAD
+    async run(
+        { id,
+            structure,
+            is_discountable,
+            is_public,
+            parent,
+            title,
+            description,
+            meta_title,
+            meta_description,
+            product_class,
+            categories,
+            rating,
+            created_at }: Params
+=======
     async create(
         id: ProductId,
         structure: ProductStructure,
@@ -111,6 +146,7 @@ export class ProductSave {
         is_discountable: ProductIsDiscountable,
         rating: ProductRating,
         created_at: ProductCreatedAt
+>>>>>>> 1acc7971300af8f299b55c1b41ec6b9c68a71ff3
     ): Promise<void> {
 
         // await this.productValidate(product);
@@ -133,6 +169,10 @@ export class ProductSave {
 
         await this.repository.save(product)
 
+<<<<<<< HEAD
+        // await this.eventBus.publish(product.pullDomainEvents());
+=======
         await this.eventBus.publish(product.pullDomainEvents());
+>>>>>>> 1acc7971300af8f299b55c1b41ec6b9c68a71ff3
     }
 }

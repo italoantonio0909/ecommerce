@@ -1,6 +1,6 @@
 import { BackofficeSubscribersRepository } from '../../domain/BackofficeSubscribersRepository';
 import { BackofficeSubscriber } from '../../domain/BackofficeSubscriber';
-import { Paginate } from '../../../../Shared/domain/Paginate';
+import { Paginate } from '../../../Shared/domain/Paginate';
 
 export class BackOfficeSubscribersPaginate {
     constructor(private repository: BackofficeSubscribersRepository) { }

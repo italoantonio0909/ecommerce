@@ -3,7 +3,7 @@ services:
   # CATEGORY SERVICES
   
   Backoffice.category.CategoryRepository:
-    class: ../../../../Contexts/Backoffice/Category/infrastructure/persistence/CategoryWebApiClient
+    class: ../../../../Contexts/Backoffice/Category/infrastructure/CategoryWebApiClient
     arguments: []
 
   Backoffice.category.CategorySave:
@@ -31,7 +31,7 @@ services:
   # PRODUCT CLASS SERVICES
 
   Backoffice.productClass.ProductClassRepository:
-    class: ../../../../Contexts/Backoffice/ProductClass/infrastructure/persistence/ProductClassWebApiClient
+    class: ../../../../Contexts/Backoffice/ProductClass/infrastructure/ProductClassWebApiClient
     arguments: []
 
   Backoffice.productClass.ProductClassSave:
@@ -50,4 +50,49 @@ services:
 
   Backoffice.productClass.ProductClassSaveController:
     class: ../../../../apps/Backoffice/controllers/ProductClassSaveController
+<<<<<<< HEAD
     arguments: ['@Shared.CommandBus']
+
+
+  # PARTNER PARTNER SERVICE
+  
+  Backoffice.partner.PartnerRepository:
+    class: ../../../../Contexts/Backoffice/Partner/infrastructure/PartnerWebApiClient
+    arguments: []
+
+  Backoffice.partner.PartnerSave:
+    class: ../../../../Contexts/Backoffice/Partner/application/save/PartnerSave
+    arguments: ['@Backoffice.partner.PartnerRepository']
+
+  Backoffice.partner.PartnerSaveCommandHandler:
+    class: ../../../../Contexts/Backoffice/Partner/application/save/PartnerSaveCommandHandler
+    arguments: ['@Backoffice.partner.PartnerSave']
+    tags:
+      - { name: 'commandHandler' }
+
+  Backoffice.partner.PartnerSaveController:
+    class: ../../../../apps/Backoffice/controllers/PartnerSaveController
+    arguments: ['@Shared.CommandBus'] 
+
+
+# PRODUCT PRODUCT PRODUCT
+  Backoffice.product.productRepository:
+      class: ../../../../Contexts/Backoffice/Product/infrastructure/ProductWebApiClient
+      arguments: []
+
+  Backoffice.product.ProductSave:
+      class: ../../../../Contexts/Backoffice/Product/application/save/ProductSave
+      arguments: ['@Backoffice.product.productRepository']
+
+  Backoffice.product.ProductSaveCommandHandler:
+      class: ../../../../Contexts/Backoffice/Product/application/save/ProductSaveCommandHandler
+      arguments: ['@Backoffice.product.ProductSave']
+      tags:
+        - { name: 'commandHandler' }
+
+  Backoffice.product.ProductSaveController:
+      class: ../../../../apps/Backoffice/controllers/ProductSaveController
+      arguments: ['@Shared.CommandBus'] 
+=======
+    arguments: ['@Shared.CommandBus']
+>>>>>>> 1acc7971300af8f299b55c1b41ec6b9c68a71ff3
