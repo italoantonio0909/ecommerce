@@ -16,7 +16,10 @@ import { ProductModifiedAt } from './ProductModifiedAt';
 import { ProductSavedDomainEvent } from './ProductSavedDomainEvent';
 
 export class Product extends AggregateRoot {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1acc7971300af8f299b55c1b41ec6b9c68a71ff3
   readonly id: ProductId;
   readonly structure: ProductStructure;
   readonly is_public: ProductIsPublic;
@@ -104,14 +107,24 @@ export class Product extends AggregateRoot {
   toPrimitives() {
     return {
       id: this.id.value,
+<<<<<<< HEAD
       estructure: this.structure.value,
       is_public: this.is_public.value,
       parent: this.parent.value,
+=======
+      estructure: this.structure,
+      is_public: this.is_public,
+      parent: this.parent,
+>>>>>>> 1acc7971300af8f299b55c1b41ec6b9c68a71ff3
       title: this.title.value,
       description: this.description.value,
       meta_title: this.meta_title.value,
       meta_description: this.meta_description.value,
+<<<<<<< HEAD
       product_class: this.product_class.value,
+=======
+      product_class: this.product_class,
+>>>>>>> 1acc7971300af8f299b55c1b41ec6b9c68a71ff3
       categories: this.categories,
       is_discountable: this.is_discountable.value,
       rating: this.rating.value,
