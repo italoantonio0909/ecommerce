@@ -72,3 +72,23 @@ services:
   Backoffice.partner.PartnerSaveController:
     class: ../../../../apps/Backoffice/controllers/PartnerSaveController
     arguments: ['@Shared.CommandBus'] 
+
+
+# PRODUCT PRODUCT PRODUCT
+  Backoffice.product.productRepository:
+      class: ../../../../Contexts/Backoffice/Product/infrastructure/ProductWebApiClient
+      arguments: []
+
+  Backoffice.product.ProductSave:
+      class: ../../../../Contexts/Backoffice/Product/application/save/ProductSave
+      arguments: ['@Backoffice.product.productRepository']
+
+  Backoffice.product.ProductSaveCommandHandler:
+      class: ../../../../Contexts/Backoffice/Product/application/save/ProductSaveCommandHandler
+      arguments: ['@Backoffice.product.ProductSave']
+      tags:
+        - { name: 'commandHandler' }
+
+  Backoffice.product.ProductSaveController:
+      class: ../../../../apps/Backoffice/controllers/ProductSaveController
+      arguments: ['@Shared.CommandBus'] 

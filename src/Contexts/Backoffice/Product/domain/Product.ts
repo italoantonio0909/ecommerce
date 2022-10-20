@@ -104,14 +104,14 @@ export class Product extends AggregateRoot {
   toPrimitives() {
     return {
       id: this.id.value,
-      estructure: this.structure,
-      is_public: this.is_public,
-      parent: this.parent,
+      estructure: this.structure.value,
+      is_public: this.is_public.value,
+      parent: this.parent.value,
       title: this.title.value,
       description: this.description.value,
       meta_title: this.meta_title.value,
       meta_description: this.meta_description.value,
-      product_class: this.product_class,
+      product_class: this.product_class.value,
       categories: this.categories,
       is_discountable: this.is_discountable.value,
       rating: this.rating.value,
