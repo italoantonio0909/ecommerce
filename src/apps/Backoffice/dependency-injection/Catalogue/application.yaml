@@ -50,7 +50,6 @@ services:
 
   Backoffice.productClass.ProductClassSaveController:
     class: ../../../../apps/Backoffice/controllers/ProductClassSaveController
-<<<<<<< HEAD
     arguments: ['@Shared.CommandBus']
 
 
@@ -93,6 +92,3 @@ services:
   Backoffice.product.ProductSaveController:
       class: ../../../../apps/Backoffice/controllers/ProductSaveController
       arguments: ['@Shared.CommandBus'] 
-=======
-    arguments: ['@Shared.CommandBus']
->>>>>>> 1acc7971300af8f299b55c1b41ec6b9c68a71ff3
