@@ -12,8 +12,8 @@ type Params = {
     created_at: Date;
 }
 
-
 export class StockRecordSaveCommand extends Command {
+
     id: string;
     product: string;
     partner: string;

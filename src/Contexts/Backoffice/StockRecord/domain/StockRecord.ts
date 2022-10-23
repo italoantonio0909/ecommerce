@@ -11,6 +11,7 @@ import { AggregateRoot } from '../../../Shared/domain/AggregateRoot';
 import { StockRecordId } from './StockRecordId';
 
 export class StockRecord extends AggregateRoot {
+
     readonly id: StockRecordId;
     readonly product: ProductId;
     readonly partner: PartnerId;
