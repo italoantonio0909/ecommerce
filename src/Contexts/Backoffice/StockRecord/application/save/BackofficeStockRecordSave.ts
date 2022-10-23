@@ -1,5 +1,5 @@
-import { BackofficeStockRecord } from "../../domain/BackofficeStockRecord";
-import { BackofficeStockRecordRepository } from '../../domain/BackofficeStockRecordRepository';
+import { BackofficeStockRecord } from "../../domain/StockRecord";
+import { BackofficeStockRecordRepository } from '../../domain/StockRecordRepository';
 import { BackofficePartner } from '../../../Partner/domain/Partner';
 import { BackofficeProduct } from '../../../Product/domain/Product';
 

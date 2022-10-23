@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
-import { BackofficeStockRecordRepository } from '../../domain/BackofficeStockRecordRepository';
-import { BackofficeStockRecord } from '../../domain/BackofficeStockRecord';
+import { BackofficeStockRecordRepository } from '../../domain/StockRecordRepository';
+import { BackofficeStockRecord } from '../../domain/StockRecord';
 import firestore from '../../../../../apps/Sales/database';
 
 export class BackofficeStockRecordWebApiClient implements BackofficeStockRecordRepository {

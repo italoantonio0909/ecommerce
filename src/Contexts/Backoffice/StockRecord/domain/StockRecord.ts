@@ -1,15 +1,15 @@
-import { BackofficePartner } from "../../Partner/domain/Partner";
-import { BackofficeProduct } from '../../Product/domain/Product';
-import { BackofficeStockRecordPrice } from './BackofficeStockRecordPrice';
-import { BackofficeStockRecordCreatedAt } from './BackofficeStockRecordCreatedAt';
-import { BackofficeStockRecordModifiedAt } from './BackofficeStockRecordModifiedAt';
-import { BackofficeStockRecordLowStockThreshold } from './BackofficeStockRecordLowStockThreshold';
-import { BackofficeStockRecordNumInStock } from './BackofficeStockRecordNumInStock';
-import { BackofficeStockRecordNumAllocated } from './BackofficeStockRecordNumAllocated';
+import { BackofficeStockRecordPrice } from './StockRecordPrice';
+import { BackofficeStockRecordCreatedAt } from './StockRecordCreatedAt';
+import { BackofficeStockRecordModifiedAt } from './StockRecordModifiedAt';
+import { BackofficeStockRecordLowStockThreshold } from './StockRecordLowStockThreshold';
+import { BackofficeStockRecordNumInStock } from './StockRecordNumInStock';
+import { BackofficeStockRecordNumAllocated } from './StockRecordNumAllocated';
+import { ProductId } from '../../Product/domain/ProductId';
+import { PartnerId } from '../../Partner/domain/PartnerId';
 
-export class BackofficeStockRecord {
-    readonly product: BackofficeProduct;
-    readonly partner: BackofficePartner;
+export class StockRecord {
+    readonly product: ProductId;
+    readonly partner: PartnerId;
     readonly price_currency: string;
     readonly price: BackofficeStockRecordPrice;
     readonly num_in_stock: BackofficeStockRecordNumInStock;

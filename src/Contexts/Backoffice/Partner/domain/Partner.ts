@@ -2,15 +2,15 @@ import { AggregateRoot } from '../../../Shared/domain/AggregateRoot';
 import { PartnerCode } from './PartnerCode';
 import { PartnerCreatedAt } from './PartnerCreatedAt';
 import { PartnerName } from './PartnerName';
-import { PartnerUid } from './PartnerUid';
+import { PartnerId } from './PartnerId';
 
 export class Partner extends AggregateRoot {
-    readonly id: PartnerUid;
+    readonly id: PartnerId;
     readonly code: PartnerCode;
     readonly name: PartnerName;
     readonly created_at: PartnerCreatedAt;
 
-    constructor(id: PartnerUid, code: PartnerCode, name: PartnerName, created_at: PartnerCreatedAt) {
+    constructor(id: PartnerId, code: PartnerCode, name: PartnerName, created_at: PartnerCreatedAt) {
         super();
         this.id = id;
         this.code = code;
@@ -18,7 +18,7 @@ export class Partner extends AggregateRoot {
         this.created_at = created_at;
     }
 
-    static create(id: PartnerUid, code: PartnerCode, name: PartnerName, created_at: PartnerCreatedAt): Partner {
+    static create(id: PartnerId, code: PartnerCode, name: PartnerName, created_at: PartnerCreatedAt): Partner {
         return new Partner(id, code, name, created_at);
     }
 
