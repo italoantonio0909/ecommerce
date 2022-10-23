@@ -1,3 +1,3 @@
 import { NumberValueObject } from "../../../Shared/domain/value-object/NumberValueObject";
 
-export class RecordLowStockThreshold extends NumberValueObject { }
+export class StockRecordLowStockThreshold extends NumberValueObject { }

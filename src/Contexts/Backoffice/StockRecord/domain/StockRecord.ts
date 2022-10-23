@@ -1,33 +1,40 @@
-import { BackofficeStockRecordPrice } from './StockRecordPrice';
-import { BackofficeStockRecordCreatedAt } from './StockRecordCreatedAt';
-import { BackofficeStockRecordModifiedAt } from './StockRecordModifiedAt';
-import { BackofficeStockRecordLowStockThreshold } from './StockRecordLowStockThreshold';
-import { BackofficeStockRecordNumInStock } from './StockRecordNumInStock';
-import { BackofficeStockRecordNumAllocated } from './StockRecordNumAllocated';
 import { ProductId } from '../../Product/domain/ProductId';
 import { PartnerId } from '../../Partner/domain/PartnerId';
+import { StockRecordPrice } from './StockRecordPrice';
+import { StockRecordNumInStock } from './StockRecordNumInStock';
+import { StockRecordNumAllocated } from './StockRecordNumAllocated';
+import { StockRecordCreatedAt } from './StockRecordCreatedAt';
+import { StockRecordModifiedAt } from './StockRecordModifiedAt';
+import { StockRecordPriceCurrency } from './StockRecordPriceCurrency';
+import { StockRecordLowStockThreshold } from './StockRecordLowStockThreshold';
+import { AggregateRoot } from '../../../Shared/domain/AggregateRoot';
+import { StockRecordId } from './StockRecordId';
 
-export class StockRecord {
+export class StockRecord extends AggregateRoot {
+    readonly id: StockRecordId;
     readonly product: ProductId;
     readonly partner: PartnerId;
-    readonly price_currency: string;
-    readonly price: BackofficeStockRecordPrice;
-    readonly num_in_stock: BackofficeStockRecordNumInStock;
-    readonly num_allocated: BackofficeStockRecordNumAllocated;
-    readonly low_stock_threshold: BackofficeStockRecordLowStockThreshold;
-    readonly modified_at: BackofficeStockRecordModifiedAt;
-    readonly created_at: BackofficeStockRecordCreatedAt;
+    readonly price_currency: StockRecordPriceCurrency;
+    readonly price: StockRecordPrice;
+    readonly num_in_stock: StockRecordNumInStock;
+    readonly num_allocated: StockRecordNumAllocated;
+    readonly low_stock_threshold: StockRecordLowStockThreshold;
+    readonly created_at: StockRecordCreatedAt;
+    readonly modified_at: StockRecordModifiedAt;
 
     constructor(
-        product: BackofficeProduct,
-        partner: BackofficePartner,
-        price_currency: string,
-        price: BackofficeStockRecordPrice,
-        num_in_stock: BackofficeStockRecordNumInStock,
-        num_allocated: BackofficeStockRecordNumAllocated,
-        low_stock_threshold: BackofficeStockRecordLowStockThreshold,
-        created_at: BackofficeStockRecordCreatedAt,
+        id: StockRecordId,
+        product: ProductId,
+        partner: PartnerId,
+        price_currency: StockRecordPriceCurrency,
+        price: StockRecordPrice,
+        num_in_stock: StockRecordNumInStock,
+        num_allocated: StockRecordNumAllocated,
+        low_stock_threshold: StockRecordNumAllocated,
+        created_at: StockRecordCreatedAt,
     ) {
+        super();
+        this.id = id;
         this.product = product;
         this.partner = partner;
         this.price_currency = price_currency;
@@ -38,16 +45,41 @@ export class StockRecord {
         this.created_at = created_at;
     }
 
-    static create(product: BackofficeProduct, partner: BackofficePartner, price_currency: string, price: number, num_in_stock: number, num_allocated: number, low_stock_threshold: number, created_at: number): BackofficeStockRecord {
-        return new BackofficeStockRecord(
+    static create(
+        id: StockRecordId,
+        product: ProductId,
+        partner: PartnerId,
+        price_currency: StockRecordPriceCurrency,
+        price: StockRecordPrice,
+        num_in_stock: StockRecordNumInStock,
+        num_allocated: StockRecordNumAllocated,
+        low_stock_threshold: StockRecordLowStockThreshold,
+        created_at: StockRecordCreatedAt): StockRecord {
+
+        return new StockRecord(
+            id,
             product,
             partner,
             price_currency,
-            new BackofficeStockRecordPrice(price),
-            new BackofficeStockRecordNumInStock(num_in_stock),
-            new BackofficeStockRecordNumAllocated(num_allocated),
-            new BackofficeStockRecordLowStockThreshold(low_stock_threshold),
-            new BackofficeStockRecordCreatedAt(created_at)
+            price,
+            num_in_stock,
+            num_allocated,
+            low_stock_threshold,
+            created_at
         );
+    }
+
+    toPrimitives() {
+        return {
+            id: this.id.value,
+            product: this.product.value,
+            partner: this.partner.value,
+            price_currency: this.price_currency.value,
+            price: this.price.value,
+            num_in_stock: this.num_in_stock.value,
+            num_allocated: this.num_allocated.value,
+            low_stock_threshold: this.low_stock_threshold.value,
+            created_at: this.created_at.value,
+        }
     }
 }
