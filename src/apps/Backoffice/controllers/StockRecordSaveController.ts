@@ -10,13 +10,13 @@ export class StockRecordSaveController implements Controller {
     async run(req: Request, res: Response) {
 
         const id: string = req.body.id;
-        const product: string = req.body.structure;
-        const partner: string = req.body.is_public;
-        const price_currency: string = req.body.parent;
-        const price: number = req.body.title;
-        const num_in_stock: number = req.body.description;
-        const num_allocated: number = req.body.meta_title;
-        const low_stock_threshold: number = req.body.meta_description;
+        const product: string = req.body.product;
+        const partner: string = req.body.partner;
+        const price_currency: string = req.body.price_currency;
+        const price: number = req.body.price;
+        const num_in_stock: number = req.body.num_in_stock;
+        const num_allocated: number = req.body.num_allocated;
+        const low_stock_threshold: number = req.body.low_stock_threshold;
         const created_at: Date = req.body.created_at;
 
         try {

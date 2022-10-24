@@ -24,16 +24,7 @@ export class StockRecordSaveCommand extends Command {
     low_stock_threshold: number;
     created_at: Date;
 
-    constructor({
-        id,
-        product,
-        partner,
-        price_currency,
-        price,
-        num_in_stock,
-        num_allocated,
-        low_stock_threshold,
-        created_at }: Params) {
+    constructor({ id, product, partner, price_currency, price, num_in_stock, num_allocated, low_stock_threshold, created_at }: Params) {
         super();
         this.id = id;
         this.product = product;

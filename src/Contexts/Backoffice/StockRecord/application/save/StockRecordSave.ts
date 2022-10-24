@@ -25,28 +25,10 @@ type Params = {
 export class StockRecordSave {
     constructor(private repository: StockRecordRepository) { }
 
-    async run({
-        id,
-        product,
-        price,
-        created_at,
-        low_stock_threshold,
-        num_allocated,
-        num_in_stock,
-        partner,
-        price_currency }: Params) {
+    async run({ id, product, price, created_at, low_stock_threshold, num_allocated, num_in_stock, partner, price_currency }: Params) {
 
-        const stockRecord = new StockRecord(
-            id,
-            product,
-            partner,
-            price_currency,
-            price,
-            num_in_stock,
-            num_allocated,
-            low_stock_threshold,
-            created_at);
+        const stockRecord = new StockRecord(id, product, partner, price_currency, price, num_in_stock, num_allocated, low_stock_threshold, created_at);
 
-        return await this.repository.save(stockRecord)
+        await this.repository.save(stockRecord);
     }
 }
