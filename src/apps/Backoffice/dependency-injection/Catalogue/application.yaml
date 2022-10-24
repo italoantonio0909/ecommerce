@@ -14,10 +14,6 @@ services:
     class: ../../../../Contexts/Backoffice/Category/application/search/CategorySearch
     arguments: ['@Backoffice.category.CategoryRepository']
 
-  Backoffice.category.CategoryPaginate:
-    class: ../../../../Contexts/Backoffice/Category/application/paginate/CategoryPaginate
-    arguments: ['@Backoffice.category.CategoryRepository']
-
   Backoffice.category.CategorySaveCommandHandler:
     class: ../../../../Contexts/Backoffice/Category/application/save/CategorySaveCommandHandler
     arguments: ['@Backoffice.category.CategorySave']
@@ -50,7 +46,6 @@ services:
 
   Backoffice.productClass.ProductClassSaveController:
     class: ../../../../apps/Backoffice/controllers/ProductClassSaveController
-<<<<<<< HEAD
     arguments: ['@Shared.CommandBus']
 
 
@@ -76,23 +71,40 @@ services:
 
 
 # PRODUCT PRODUCT PRODUCT
-  Backoffice.product.productRepository:
-      class: ../../../../Contexts/Backoffice/Product/infrastructure/ProductWebApiClient
-      arguments: []
+  Backoffice.product.ProductRepository:
+    class: ../../../../Contexts/Backoffice/Product/infrastructure/ProductWebApiClient
+    arguments: []
 
   Backoffice.product.ProductSave:
-      class: ../../../../Contexts/Backoffice/Product/application/save/ProductSave
-      arguments: ['@Backoffice.product.productRepository']
+    class: ../../../../Contexts/Backoffice/Product/application/save/ProductSave
+    arguments: ['@Backoffice.product.ProductRepository']
 
   Backoffice.product.ProductSaveCommandHandler:
-      class: ../../../../Contexts/Backoffice/Product/application/save/ProductSaveCommandHandler
-      arguments: ['@Backoffice.product.ProductSave']
-      tags:
-        - { name: 'commandHandler' }
+    class: ../../../../Contexts/Backoffice/Product/application/save/ProductSaveCommandHandler
+    arguments: ['@Backoffice.product.ProductSave']
+    tags:
+      - { name: 'commandHandler' }
 
   Backoffice.product.ProductSaveController:
-      class: ../../../../apps/Backoffice/controllers/ProductSaveController
-      arguments: ['@Shared.CommandBus'] 
-=======
-    arguments: ['@Shared.CommandBus']
->>>>>>> 1acc7971300af8f299b55c1b41ec6b9c68a71ff3
+    class: ../../../../apps/Backoffice/controllers/ProductSaveController
+    arguments: ['@Shared.CommandBus'] 
+
+
+# STOCK-RECORD  STOCK-RECORD  STOCK-RECORD
+  Backoffice.stockRecord.StockRecordRepository:
+    class: ../../../../Contexts/Backoffice/StockRecord/infrastructure/StockRecordWebApiClient
+    arguments: []
+
+  Backoffice.stockRecord.StockRecordSave:
+    class: ../../../../Contexts/Backoffice/StockRecord/application/save/StockRecordSave
+    arguments: ['@Backoffice.stockRecord.StockRecordRepository']
+
+  Backoffice.stockRecord.StockRecordSaveCommandHandler:
+    class: ../../../../Contexts/Backoffice/StockRecord/application/save/StockRecordSaveCommandHandler
+    arguments: ['@Backoffice.stockRecord.StockRecordSave']
+    tags:
+      - { name: 'commandHandler' }
+
+  Backoffice.stockRecord.StockRecordSaveController:
+    class: ../../../../apps/Backoffice/controllers/StockRecordSaveController
+    arguments: ['@Shared.CommandBus'] 

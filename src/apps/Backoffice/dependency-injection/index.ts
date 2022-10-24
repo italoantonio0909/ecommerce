@@ -8,7 +8,7 @@ try {
     loader.load(`${__dirname}/application_${env}.yaml`)
 }
 catch (error) {
-    console.log({ error: error.message })
+    console.log(error)
 }
 
 export default container;

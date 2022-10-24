@@ -19,7 +19,6 @@ export class Server {
     constructor(port: string) {
         this.port = port;
         this.express = express();
-        // this.express.use(csrf({ cookie: true }));
         this.express.use(morgan("dev"));
         this.express.use(bodyParser.json());
         this.express.use(cookieParser());
